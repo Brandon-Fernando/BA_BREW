@@ -1,0 +1,78 @@
+.home-container{
+  width: 100%;
+  min-height: 100dvh;
+  padding: 5rem 2rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* LOGO  */
+.home-logo-wrapper{
+  width: 100%;
+  position: relative;
+  /* height: auto; */
+  max-width: 20rem;
+}
+
+.logo-line{
+  border: none;
+  height: 4px;
+  background-color: #CA5050;
+  border-radius: 50px;
+}
+
+.ba-brew{
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.logo-cup-position {
+  position: absolute;
+  left: 50%;
+  top: 0.5rem;
+  width: 7rem;
+  transform: translateX(-10%);
+}
+
+.logo-cup{
+  height: 7rem;
+}
+
+
+.home-logo-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ba{
+  font-family: "Chunk";
+  font-size: 8.2rem;
+  color: #CA5050;
+
+}
+
+.brew{
+  position: absolute;
+  bottom: -0.5rem;
+}
+
+
+#text{
+  stroke-dasharray: 286;
+  animation: 2s fillSvg linear;
+}
+
+@keyframes fillSvg{
+  0%{
+    stroke-dashoffset: 286;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}

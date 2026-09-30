@@ -1,0 +1,11 @@
+.layout {
+  min-height: 100dvh;
+  position: relative;
+}
+
+.backdrop{
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  background-color: rgba(33, 0, 0, 0.6);
+}

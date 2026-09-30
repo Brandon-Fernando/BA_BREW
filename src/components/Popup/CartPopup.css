@@ -1,0 +1,50 @@
+.cart-popup-content{
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  border: 1px solid red;
+}
+
+.popup-drink{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.popup-circ{
+  width: 4rem;
+  height: 4rem;
+  background-color: #CA5050;
+  border-radius: 20px;
+}
+
+.popup-coffee{
+  /* height: 5rem; */
+  width: 3rem;
+  position: absolute;
+  top: 30%;
+
+}
+
+.cart-popup-content span{
+  font-family: "Chunk";
+  font-size: 1.4rem;
+  color: #CA5050;
+  text-transform: uppercase;
+}
+
+.popup-buttons{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 0.5rem;
+}

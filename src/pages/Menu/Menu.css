@@ -1,0 +1,158 @@
+.menu-container{
+  width: 100%;
+  min-height: 100dvh;
+  padding: 5rem 2rem 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow: visible;
+}
+
+/* MENU TITLE  */
+.menu-title{
+  width: 100%;
+
+}
+
+
+/* MENU LIST  */
+.menu-list-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  width: 100%;
+  gap: 3rem;
+}
+
+.drink-link{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+.drink-link:focus,
+.drink-link:active,
+.drink-link:visited {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.drink-card-wrapper{
+  display: flex;
+  width: 100%;
+  background-color: #E1D3BF;
+  position: relative;
+  height: 6rem;
+  border-radius: 30px;
+  padding: 1.5rem;
+  align-items: center;
+
+}
+
+.drink-card-wrapper.reverse{
+  flex-direction: row-reverse;
+}
+
+
+.coffee-img{
+  height: 10rem;
+  position: absolute;
+}
+
+.drink-title-button{
+  padding-left: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+.drink-card-wrapper.reverse .coffee-img{
+  left: auto;
+}
+
+.drink-card-wrapper.reverse .drink-title-button{
+  right: auto;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.drink-title{
+  font-family: "Groove";
+  text-transform: uppercase;
+  color: #650000;
+}
+
+
+
+/* SPECIALTY COFFEE  */
+.menu-option-container{
+  width: 100%;
+  min-height: 100dvh;
+  padding: 6rem 2rem 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow: visible;
+}
+
+.menu-option-title{
+  margin-top: 1rem;
+}
+
+
+/* ===== TITLES =====  */
+.specialty-drinks-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.title{
+  font-family: "Chunk";
+  text-transform: uppercase;
+  color: #CA5050;
+  font-size: 12vw;
+  padding-top: 0.8rem;
+}
+
+.cursive-subtitle{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title-line{
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 2px;
+  background-color: #CA5050;
+  border-radius: 50px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+
+#title-text{
+  stroke-dasharray: 288;
+  animation: 1s fillSvg linear;
+}
+
+@keyframes fillSvg{
+  0%{
+    stroke-dashoffset: 288;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}

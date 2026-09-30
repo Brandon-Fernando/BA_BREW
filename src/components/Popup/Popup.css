@@ -1,0 +1,22 @@
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: min(90vw, 800px); */
+  z-index: 99;
+  width: 18rem;
+}
+
+.popup-content {
+  width: 100%;
+  aspect-ratio: 900 /600;
+  height: 25rem;
+  box-sizing: border-box;
+  /* padding: 40px; */
+
+  background-image: url("/Popup/Popup.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

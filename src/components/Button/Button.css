@@ -1,0 +1,71 @@
+.button {
+  /* width: min(200px, 100%); */
+  aspect-ratio: 390 / 130;
+  border: 0;
+  background: url("/Button/Button.svg") center / 100% 100% no-repeat;
+  color: #EADDCA;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Groove";
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  
+}
+
+.button-regular {
+  /* width: min(200px, 100%); */
+  aspect-ratio: 391/80;
+  width: 20rem;
+  border: 0;
+  background: url("/Button/Button-Regular.svg") center / 100% 100% no-repeat;
+  color: #EADDCA;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Groove";
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  
+}
+
+.button.S{
+  aspect-ratio: 80/26;
+  width: 80px;
+  font-size: 12px;
+}
+
+.button.M{
+  aspect-ratio: 180/56;
+  width: 180px;
+  font-size: 13px;
+}
+
+/* BACK BUTTON  */
+.back-button-container{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button{
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #CA5050;
+  border-radius: 50px;
+  box-shadow: 1.5px 1.5px 0px #650000;
+  color: #EADDCA;
+  font-size: 10px;
+}
+
+.back-button-container span{
+  font-family: "Groove";
+  text-transform: uppercase;
+  color: #650000;
+  padding-top: 4px;
+}
