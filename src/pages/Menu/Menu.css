@@ -1,7 +1,7 @@
 .menu-container{
   width: 100%;
   min-height: 100dvh;
-  padding: 5rem 2rem 4rem 2rem;
+  padding: 6rem 2rem 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,18 @@
 /* MENU TITLE  */
 .menu-title{
   width: 100%;
+  font-family: "Chunk";
+  text-transform: uppercase;
+  color: #CA5050;
+  font-size: 18vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
 
+.menu-cursive{
+  position: absolute;
 }
 
 
@@ -117,12 +128,13 @@
   position: relative;
 }
 
-.title{
+.specialty-title{
   font-family: "Chunk";
   text-transform: uppercase;
   color: #CA5050;
   font-size: 12vw;
-  padding-top: 0.8rem;
+  line-height: 1;
+  /* padding-top: 0.8rem; */
 }
 
 .cursive-subtitle{

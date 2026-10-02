@@ -1,4 +1,4 @@
-.cart-popup-content{
+.cart-popup-wrapper{
   width: 100%;
   height: 100%;
   padding: 2rem;
@@ -7,7 +7,16 @@
   align-items: center;
   gap: 1rem;
   position: relative;
-  border: 1px solid red;
+}
+
+.cart-popup-content{
+  width: 100%;
+  height: 100%;
+  border: 2px solid #CA5050;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .popup-drink{
@@ -15,14 +24,14 @@
   flex-direction: column;
   position: relative;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .popup-circ{
   width: 4rem;
   height: 4rem;
   background-color: #CA5050;
-  border-radius: 20px;
+  border-radius: 50px;
 }
 
 .popup-coffee{
@@ -47,4 +56,20 @@
   box-sizing: border-box;
   align-items: center;
   gap: 0.5rem;
+  margin-top: auto;
 }
+
+/* #popup-text{
+  stroke-dasharray: 240;
+  animation: 2s fillSvg linear;
+}
+
+@keyframes fillSvg{
+  0%{
+    stroke-dashoffset: 240;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+ */

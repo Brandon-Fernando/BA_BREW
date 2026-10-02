@@ -1,0 +1,140 @@
+
+.cart-sidebar-container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(90vw, 350px);
+    height: 100dvh;
+    background: #EADDCA;
+    z-index: 99;
+    padding: 1.5rem;
+    border-bottom-left-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 6rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ===== TITLE =====  */
+.cart-title{
+    font-family: "Chunk";
+    color: #CA5050;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.cursive-cart{
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+}
+
+
+/* CART ITEMS  */
+.cart-items-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.cart-item-wrapper{
+  background-color: #E1D3BF;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.cart-drink{
+  background-color: #EADDCA;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cart-drink img{
+  width: 30px;
+}
+
+.cart-drink-info-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.cart-drink-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drink-name{
+  font-family: "Groove";
+  text-transform: uppercase;
+  color: #CA5050;
+}
+
+.cart-customization{
+  margin: 0;
+  font-family: "Montserrat";
+  font-size: 10px;
+  color: #D7978C;
+}
+
+.cart-qty{
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.cart-qty-wrapper{
+  background-color: #EADDCA;
+  width: 6rem;
+  display: flex;
+  padding: 5px;
+  border-radius: 50px;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plus-minus{
+  width: 16px;
+  height: 16px;
+  background-color: #CA5050;
+  border-radius: 50px;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #EADDCA;
+}
+
+.qty{
+  font-family: "Groove";
+  line-height: 0.9;
+  padding-top: 2px;
+}
+
+.cart-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}

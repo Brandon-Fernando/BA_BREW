@@ -8,15 +8,18 @@ import MenuSidebar from "../MenuSidebar/MenuSidebar";
 import { useLocation } from "react-router-dom";
 import { useLayoutEffect } from "react";
 import CartPopup from "../Popup/CartPopup";
+import CartSidebar from "../CartSidebar/CartSidebar";
 
 const Layout = () => {
   const location = useLocation();
   const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
   const [cartPopupOpen, setCartPopupOpen] = useState(false);
+  const [cartSidebarOpen, setCartSidebarOpen] = useState(false);
 
   const overlayOpen = Boolean(
     menuSidebarOpen ||
-    cartPopupOpen
+    cartPopupOpen || 
+    cartSidebarOpen
   );
   
 
@@ -45,6 +48,7 @@ const Layout = () => {
     <div className="layout">
       <Header 
         setMenuSidebarOpen={setMenuSidebarOpen}
+        setCartSidebarOpen={setCartSidebarOpen}
       />
 
       <Outlet 
@@ -85,6 +89,21 @@ const Layout = () => {
 
             <CartPopup />
 
+          </>
+        )}
+
+        {cartSidebarOpen && (
+          <>
+            <motion.div 
+              className="backdrop"
+              onClick={() => setCartSidebarOpen(false)}
+              variants={backdropFade}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            />
+
+            <CartSidebar onClose={() => setCartSidebarOpen(false)}/>
           </>
         )}
       </AnimatePresence>

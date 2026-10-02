@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout'
 import Home from './pages/Home/Home'
 import MenuOption from './pages/Menu/components/MenuOption'
 import Menu from './pages/Menu/Menu'
+import Checkout from './pages/Checkout/Checkout'
 
 function App() {
 
@@ -19,6 +20,8 @@ function App() {
         <Route path="/menu/:menuOption" element={<MenuOption />}/>
 
         <Route path="/menu/:menuOption/:drink" element={<DrinkPage />}/>
+
+        <Route path="/checkout" element={<Checkout />}/>
       </Route>
     </Routes>
   )

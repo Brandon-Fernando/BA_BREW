@@ -1,7 +1,8 @@
 import "./Header.css";
 
 const Header = ({
-  setMenuSidebarOpen
+  setMenuSidebarOpen, 
+  setCartSidebarOpen
 }) => {
 
   return(
@@ -13,7 +14,7 @@ const Header = ({
 
       {/* CART MENU  */}
       <div className="cart-menu">
-        <i className="fa-solid fa-cart-shopping"/>
+        <i onClick={() => setCartSidebarOpen(true)} className="fa-solid fa-cart-shopping"/>
 
         <div 
           className="header-menu"
