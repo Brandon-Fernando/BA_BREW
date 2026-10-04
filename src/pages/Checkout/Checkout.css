@@ -7,11 +7,13 @@
   align-items: center;
   overflow-y: auto;
   overflow: visible;
+  gap: 1.5rem;
 }
 
 
 .checkout-logo{
-  width: 8rem;
+  width: 6rem;
+  margin-bottom: 1rem;
 }
 
 .order-summary-container{
@@ -25,12 +27,161 @@
   flex-direction: column;
 }
 
+.checkout-subtitle{
+  font-family: "Groove";
+  text-transform: uppercase;
+  color: #CA5050;
+  font-size: 1.2rem;
+}
+
+
 /* ORDER SUMMARY CARD  */
 .order-summary-card{
   width: 100%;
+  background-color: #E1D3BF;
+  display: flex;
+  padding: 1rem;
+  border-radius: 20px;
+  gap: 1rem;
+}
 
+.sum-drink{
+  width: 50px;
+  height: 50px;
+  background-color: #EADDCA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .sum-drink img{
-  width: 12px;
+  width: 20px;
+}
+
+.sum-info{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sum-info-title{
+  font-family: "Groove";
+  text-transform: uppercase;
+  color: #1C0707;
+}
+
+.sum-customization{
+  margin: 0;
+  color: #8A796E;
+  font-family: "Montserrat";
+  font-size: 10px;
+}
+
+
+/* CUSTOMER INFORMAITON  */
+.checkout-customer-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-info-container{
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 0.5rem;
+}
+
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.flname-container{
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.input-text{
+  width: 100%;
+}
+
+.field span{
+  font-family: "Groove";
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #8A796E;
+  line-height: 0.8;
+  padding-top: 4px;
+}
+
+.input-wrapper{
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.5rem;
+  font-size: 11px;
+  color: #8A796E;
+  pointer-events: none;
+}
+
+.input-text{
+  outline: none;
+  border: 2px solid transparent;
+  height: 2.5rem;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding-left: 1.7rem;
+  font-family: "Groove";
+  font-size: 16px;
+  color: #1C0707;
+  background-color: #E1D3BF;
+
+  transition: border-color 0.25s ease-out, 
+              background-color 0.25s ease-out;
+}
+
+.input-text::placeholder{
+  color: #68544B;
+  opacity: 0.6;
+}
+
+.opt-msg{
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.opt-btn{
+  width: 17px;
+  height: 17px;
+  border: 2px solid #8A796E;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #EADDCA;
+  font-size: 10px;
+}
+
+.opt-msg span{
+  font-family: "Montserrat";
+  color: #8A796E;
+  font-size: 10px;
 }

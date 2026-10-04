@@ -3,12 +3,12 @@ import { useState } from "react";
 import { CUSTOMIZE_OPTIONS } from "../../../constants/constants";
 import { expandAnimation, customizeOptions } from "../../../animations/motionVariants";
 
-const Customize = () => {
+const Customize = ({options}) => {
   const [expandedLabel, setExpandedLabel] = useState(null);
 
   return(
     <div className="customize-container">
-      {CUSTOMIZE_OPTIONS.map((option) => {
+      {options.map((option) => {
         const isExpanded = option.label === expandedLabel;
 
         return(        

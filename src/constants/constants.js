@@ -27,3 +27,36 @@ export const CUSTOMIZE_OPTIONS = [
     options: COLD_FOAM
   }
 ]
+
+export const SPECIALTY_COFFEES = [
+  {
+    id: "vanilla",
+    title: "Vanilla", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
+  }, 
+  {
+    id: "pumpkin-spided",
+    title: "Pumpkin Spiced", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
+  }, 
+  {
+    id: "coconut", 
+    title: "Coconut", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
+  }, 
+  {
+    id: "maple-cinnamon",
+    title: "Maple Cinnamon", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
+  }, 
+  {
+    id: "cookie-butter",
+    title: "Cookie Butter", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
+  }
+]

@@ -5,7 +5,7 @@ import { staggerContainer, wrapperSlide, slideInFromRight, slideInFromLeft } fro
 
 const temp = [1, 2, 3, 4]
 
-const MenuList = ({coffeePath}) => {
+const MenuList = ({coffeePath, menu}) => {
 
   return (
     <motion.div 
@@ -14,8 +14,8 @@ const MenuList = ({coffeePath}) => {
       initial="hidden"
       animate="visible"
     >
-      {temp.map((drink, index) => (
-        <Link className="drink-link" to={`/menu/${coffeePath}/iced-latte`}>
+      {menu.map((drink, index) => (
+        <Link className="drink-link" to={`/menu/${coffeePath}/${drink.id}`}>
           <motion.div 
             className={`drink-card-wrapper ${index % 2 === 1 ? "reverse" : ""}`}
             variants={wrapperSlide}
@@ -31,7 +31,7 @@ const MenuList = ({coffeePath}) => {
              className="drink-title-button"
              variants={index % 2 === 1 ? slideInFromLeft: slideInFromRight}
             >
-              <span className="drink-title">Title</span>
+              <span className="drink-title">{drink.title}</span>
 
               <Button size={"S"} text="View"/>
             </motion.div>

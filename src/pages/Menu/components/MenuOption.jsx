@@ -2,9 +2,15 @@ import { useParams } from "react-router-dom";
 import BackButton from "../../../components/Button/BackButton";
 import MenuList from "./MenuList";
 import CursiveTitles from "../../../components/CursiveTitles/CursiveTitles";
+import { SPECIALTY_COFFEES } from "../../../constants/constants";
+
+const MENU_TYPE = {
+  "specialty-coffees": SPECIALTY_COFFEES,
+}
 
 const MenuOption = () => {
   const { menuOption } = useParams();
+  const menuType = MENU_TYPE[menuOption];
 
   return(
     <div className="menu-option-container">
@@ -23,7 +29,10 @@ const MenuOption = () => {
         {/* <hr className="title-line"/> */}
       </div>
 
-      <MenuList coffeePath={menuOption}/>
+      {menuType && (
+        <MenuList coffeePath={menuOption} menu={menuType}/>
+      )}
+     
     </div>
   )
 }

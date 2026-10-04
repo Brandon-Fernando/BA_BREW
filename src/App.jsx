@@ -19,7 +19,7 @@ function App() {
         {/* <Route path="/menu/:cookieId" element={<CookieDetails />}/> */}
         <Route path="/menu/:menuOption" element={<MenuOption />}/>
 
-        <Route path="/menu/:menuOption/:drink" element={<DrinkPage />}/>
+        <Route path="/menu/:menuOption/:selectedDrink" element={<DrinkPage />}/>
 
         <Route path="/checkout" element={<Checkout />}/>
       </Route>

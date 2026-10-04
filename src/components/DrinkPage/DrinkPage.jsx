@@ -5,12 +5,19 @@ import { motion } from "framer-motion";
 import { drinkBgSlide, drinkSlide } from "../../animations/motionVariants";
 import Customize from "./components/Customize";
 import Button from "../Button/Button";
+import { SPECIALTY_COFFEES } from "../../constants/constants";
 
+const MENU_TYPE = {
+  "specialty-coffees": SPECIALTY_COFFEES,
+}
 
 const DrinkPage = () => {
-  const { menuOption } = useParams();
+  const { menuOption, selectedDrink } = useParams();
 
   const { setCartPopupOpen, overlayOpen } = useOutletContext(); 
+
+  const menuType = MENU_TYPE[menuOption];
+  const drink = menuType.find((item) => item.id === selectedDrink);
 
   return(
     <div className="drink-container">
@@ -37,13 +44,13 @@ const DrinkPage = () => {
 
       {/* DRINK TITLE / DESCRIPTION */}
       <div className="drink-title-wrapper">
-        <span className="main-drink-title">Title</span>
+        <span className="main-drink-title">{drink.title}</span>
 
         <span className="drink-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </span>
       </div>
 
       {/* CUSTOMIZE DRINK  */}
-      <Customize />
+      <Customize options={drink.options}/>
 
       {/* FOOTER  */}
       <div
