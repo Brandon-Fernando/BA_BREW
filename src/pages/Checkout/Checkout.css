@@ -1,7 +1,7 @@
 .checkout-container{
   width: 100%;
   min-height: 100dvh;
-  padding: 6rem 2rem 4rem 2rem;
+  padding: 6rem 2rem 1rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,6 +147,7 @@
   border-radius: 10px;
   box-sizing: border-box;
   padding-left: 1.7rem;
+  padding-top: 5px;
   font-family: "Groove";
   font-size: 16px;
   color: #1C0707;
@@ -180,8 +181,20 @@
   font-size: 10px;
 }
 
+.opt-btn.confirmed{
+  background-color: #8A796E;
+}
+
 .opt-msg span{
   font-family: "Montserrat";
   color: #8A796E;
   font-size: 10px;
+}
+
+.opt-btn i{
+  color: #EADDCA;
+}
+
+.place-order-button{
+  margin-top: auto;
 }

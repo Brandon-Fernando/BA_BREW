@@ -2,10 +2,15 @@ import { useState } from "react";
 import "./Checkout.css";
 import CustomerInfo from "./components/CustomerInfo";
 import OrderSummaryCard from "./components/OrderSummaryCard";
+import Button from "../../components/Button/Button";
 
 const Checkout = () => {
 
   const [optIn, setOptIn] = useState(false);
+
+  const handleOptIn = () => {
+    setOptIn(!optIn)
+  }
 
   return(
     <div className="checkout-container">
@@ -28,7 +33,10 @@ const Checkout = () => {
         
         {/* OPT IN  */}
         <div className="opt-msg">
-          <div className="opt-btn">
+          <div 
+            onClick={() => handleOptIn()}
+            className={`opt-btn ${optIn ? "confirmed" : ""}`}
+          >
             {optIn && (
               <i className="fa-solid fa-check"/>
             )}
@@ -36,6 +44,11 @@ const Checkout = () => {
 
           <span>Opt in to receive text message order updates (Optional)</span>
         </div>
+      </div>
+
+      {/* ORDER BUTTON  */}
+      <div className="place-order-button">
+        <Button size="regular" text="place order"/>
       </div>
     </div>
   )

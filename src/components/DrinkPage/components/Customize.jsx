@@ -3,8 +3,9 @@ import { useState } from "react";
 import { CUSTOMIZE_OPTIONS } from "../../../constants/constants";
 import { expandAnimation, customizeOptions } from "../../../animations/motionVariants";
 
-const Customize = ({options}) => {
+const Customize = ({options, selections, onChange}) => {
   const [expandedLabel, setExpandedLabel] = useState(null);
+
 
   return(
     <div className="customize-container">
@@ -26,7 +27,7 @@ const Customize = ({options}) => {
               <div className="cust-title-select">
                 <span className="cust-title">{option.label}</span>
 
-                <span className="cust-select">{option.options[0]}</span>
+                <span className="cust-select">{selections[option.label]}</span>
               </div>
               
 
@@ -57,7 +58,8 @@ const Customize = ({options}) => {
                         key={value}
                         className="customize-option"
                         variants={customizeOptions}
-                        animate={option.options[0] === value ? "active" : "inactive"}
+                        animate={selections[option.label] === value ? "active" : "inactive"}
+                        onClick={() => onChange(option.label, value)}
                       >
                         {value}
                       </motion.div>
