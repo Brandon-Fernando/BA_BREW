@@ -5,13 +5,14 @@ import CursiveTitles from "../CursiveTitles/CursiveTitles";
 import CartItems from "./components/CartItems";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 const CartSidebar = ({onClose}) => {
   const navigate = useNavigate();
+  const { cart, updateQuantity, removeFromCart } = useCart();
 
   const handleCheckoutClick = () => {
     onClose();
-
     navigate("/checkout")
   }
 
@@ -36,7 +37,18 @@ const CartSidebar = ({onClose}) => {
 				
 			</div>
 
-      <CartItems />
+      {cart.length > 0 ? (
+        <CartItems 
+          cart={cart}
+          updateQuantity={updateQuantity}
+          removeFromCart={removeFromCart}
+        />
+      ) : (
+        <div>
+
+        </div>
+      )}
+     
 
       <div className="cart-button">
         <Button onClick={() => handleCheckoutClick()} size="regular" text="checkout"/>

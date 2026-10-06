@@ -7,7 +7,7 @@
   align-items: center;
   overflow-y: auto;
   overflow: visible;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 
@@ -25,6 +25,7 @@
 .order-summary-wrapper{
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .checkout-subtitle{

@@ -3,9 +3,10 @@ import "./Checkout.css";
 import CustomerInfo from "./components/CustomerInfo";
 import OrderSummaryCard from "./components/OrderSummaryCard";
 import Button from "../../components/Button/Button";
+import { useCart } from "../../context/CartContext";
 
 const Checkout = () => {
-
+  const { cart } = useCart();
   const [optIn, setOptIn] = useState(false);
 
   const handleOptIn = () => {
@@ -14,14 +15,17 @@ const Checkout = () => {
 
   return(
     <div className="checkout-container">
-      <img src="/Logo/SecondaryLogo.png" alt="Logo" className="checkout-logo"/>
+      <img src="/Home/Main_Logo.png" alt="Logo" className="checkout-logo"/>
 
       {/* ORDER SUMMARY  */}
       <div className="order-summary-container">
         <span className="checkout-subtitle">order summary</span>
         
         <div className="order-summary-wrapper">
-          <OrderSummaryCard />
+          {/* <OrderSummaryCard /> */}
+          {cart.map((cartItem) => (
+            <OrderSummaryCard item={cartItem}/>
+          ))}
         </div>
        
       </div>

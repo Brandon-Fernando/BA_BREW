@@ -1,6 +1,6 @@
 const subtitle = ["2 Shots", "Oat Milk", "Coldfoam"]
 
-const OrderSummaryCard = () => {
+const OrderSummaryCard = ({item}) => {
 
   return(
     <div className="order-summary-card">
@@ -10,9 +10,14 @@ const OrderSummaryCard = () => {
       </div>
 
       <div className="sum-info">
-        <span className="sum-info-title">Title</span>
+        <span className="sum-info-title">{item.title}</span>
 
-         <p className="sum-customization">{subtitle.join(" • ")}</p>
+         {/* <p className="sum-customization">{subtitle.join(" • ")}</p> */}
+         <p className="sum-customization">
+          {Object.values(item.customizations ?? {})
+          .filter((value) => value !== "None")
+          .join(" • ")}
+         </p>
       </div>
     </div>
   )

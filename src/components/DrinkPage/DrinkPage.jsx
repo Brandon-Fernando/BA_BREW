@@ -15,9 +15,7 @@ const MENU_TYPE = {
 
 const DrinkPage = () => {
   const { menuOption, selectedDrink } = useParams();
-  const { addToCart, cart } = useCart();
-
-  console.log(cart)
+  const { addToCart } = useCart();
 
   const { setCartPopupOpen, overlayOpen } = useOutletContext(); 
 

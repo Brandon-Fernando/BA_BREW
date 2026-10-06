@@ -8,7 +8,7 @@ const Button = ({size, text, onClick}) => {
       {size === "regular" ? (
         <button onClick={onClick} className="button-regular">{text}</button>
       ) : (
-        <button className={`button ${size}`}>{text}</button>
+        <button onClick={onClick} className={`button ${size}`}>{text}</button>
       )}
     </>
     

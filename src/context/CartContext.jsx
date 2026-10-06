@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 
 const CartContext = createContext();
@@ -21,7 +22,7 @@ export const CartProvider = ({children}) => {
   const addToCart = (item) => {
     const cartItem = {
       ...item, 
-      cartItemId: crypto.randomUUID(), 
+      cartItemId: uuidv4(), 
       quantity: 1
     }
 
@@ -32,10 +33,22 @@ export const CartProvider = ({children}) => {
   const updateQuantity = (id, quantity) => {
     setCart((prev) => 
       prev.map((item) => (
-        item.cartId === id
+        item.cartItem === id
         ? {...item, quantity}
         : item
     )))
+  }
+
+  const removeFromCart = (id) => {
+    setCart((prev) => 
+      prev.filter(
+        (item) => !(item.cartItemId === id)
+      )
+    );
+  };
+
+  const clearCart = () => {
+    setCart([])
   }
 
   return(
@@ -44,7 +57,9 @@ export const CartProvider = ({children}) => {
         cart, 
         setCart, 
         addToCart, 
-        updateQuantity
+        updateQuantity, 
+        removeFromCart, 
+        clearCart
       }}
     >
       {children}
