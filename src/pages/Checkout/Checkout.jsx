@@ -5,6 +5,7 @@ import OrderSummaryCard from "./components/OrderSummaryCard";
 import Button from "../../components/Button/Button";
 import { useCart } from "../../context/CartContext";
 import BackButton from "../../components/Button/BackButton";
+import LoadingAnimation from "../../components/Loading/LoadingAnimation";
 
 const Checkout = () => {
   const { cart } = useCart();
@@ -16,6 +17,7 @@ const Checkout = () => {
   })
 
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   // VALIDATE FIELD 
   const validateField = (field, value) => {
@@ -82,10 +84,19 @@ const Checkout = () => {
     setOptIn(!optIn)
   }
 
+  if(isLoading) {
+    return(
+      <div className="checkout-container">
+        <LoadingAnimation isLoading={isLoading}/>
+      </div>
+    )
+  }
+  
+
   return(
     <div className="checkout-container">
       {/* EXIT BUTTON  */}
-        <BackButton path={-1}/>
+      <BackButton path={-1}/>
       
      
       <div className="checkout-logo-wrapper">
