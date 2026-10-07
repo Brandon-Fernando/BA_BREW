@@ -88,7 +88,7 @@ const DrinkPage = () => {
       {/* FOOTER  */}
       <div
         className="footer"
-        // style={{ visibility: overlayOpen ? "hidden" : "visible" }}
+        style={{ visibility: overlayOpen ? "hidden" : "visible" }}
       >
         <Button
           onClick={() => handleAddToCart()}
