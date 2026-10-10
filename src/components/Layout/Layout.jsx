@@ -90,7 +90,10 @@ const Layout = () => {
               exit="exit"
             />
 
-            <CartPopup />
+            <CartPopup 
+              setCartPopupOpen={setCartPopupOpen}
+              setCartSidebarOpen={setCartSidebarOpen}
+            />
 
           </>
         )}

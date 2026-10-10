@@ -1,4 +1,4 @@
-.button {
+.buttonss {
   /* width: min(200px, 100%); */
   aspect-ratio: 390 / 130;
   border: 0;
@@ -20,6 +20,23 @@
   width: 20rem;
   border: 0;
   background: url("/Button/Button-Regular.svg") center / 100% 100% no-repeat;
+  color: #EADDCA;
+  font: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Groove";
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  
+}
+
+.button-regular.light {
+  /* width: min(200px, 100%); */
+  aspect-ratio: 391/80;
+  width: 20rem;
+  border: 0;
+  background: url("/Button/Button-Regular-Light.svg") center / 100% 100% no-repeat;
   color: #EADDCA;
   font: inherit;
   font-size: 16px;

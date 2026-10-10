@@ -2,9 +2,8 @@ import "./DrinkPage.css";
 import BackButton from "../Button/BackButton";
 import { useOutletContext, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { drinkBgSlide, drinkSlide } from "../../animations/motionVariants";
+import { drinkBgSlide, drinkSlide, slideUpButton } from "../../animations/motionVariants";
 import Customize from "./components/Customize";
-import Button from "../Button/Button";
 import { SPECIALTY_COFFEES } from "../../constants/constants";
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
@@ -90,11 +89,16 @@ const DrinkPage = () => {
         className="footer"
         style={{ visibility: overlayOpen ? "hidden" : "visible" }}
       >
-        <Button
+        <motion.button 
+          className="drink-button button red"
           onClick={() => handleAddToCart()}
-          size="regular"
-          text="Add to cart"
-        />
+          variants={slideUpButton}
+          initial="hidden"
+          animate="visible"
+          // exit="exit"
+        >
+          add to cart
+        </motion.button>
       </div>
     </div>
   )

@@ -17,7 +17,7 @@ const Checkout = () => {
   })
 
   const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // VALIDATE FIELD 
   const validateField = (field, value) => {

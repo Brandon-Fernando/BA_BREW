@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { sidebarSlide } from "../../animations/motionVariants";
+import { sidebarSlide, slideUpButton } from "../../animations/motionVariants";
 import "./CartSidebar.css";
 import CursiveTitles from "../CursiveTitles/CursiveTitles";
 import CartItems from "./components/CartItems";
@@ -51,7 +51,17 @@ const CartSidebar = ({onClose}) => {
      
 
       <div className="cart-button">
-        <Button onClick={() => handleCheckoutClick()} size="regular" text="checkout"/>
+        <motion.button 
+          onClick={() => handleCheckoutClick()} 
+          className="cart-btn button red"
+          variants={slideUpButton}
+          initial="hidden"
+          animate="visible"
+          exit="exit"d
+        >
+          checkout
+        </motion.button>
+        {/* <Button onClick={() => handleCheckoutClick()} size="regular" text="checkout"/> */}
       </div>
 
 		</motion.aside>	

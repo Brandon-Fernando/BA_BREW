@@ -99,6 +99,16 @@
   color: #650000;
 }
 
+.view-button-wrapper{
+  width: 5rem;
+}
+
+.view-button{
+  width: 100%;
+  padding-top: 4px;
+  height: 1.5rem;
+  font-size: 12px;
+}
 
 
 /* SPECIALTY COFFEE  */

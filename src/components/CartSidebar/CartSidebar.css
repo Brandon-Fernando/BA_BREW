@@ -56,8 +56,8 @@
 
 .cart-drink{
   background-color: #EADDCA;
-  width: 4.2rem;
-  height: 4.2rem;
+  width: 4.4rem;
+  height: 4.4rem;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -106,7 +106,7 @@
   background-color: #EADDCA;
   width: 6rem;
   display: flex;
-  padding: 5px;
+  padding: 7px;
   border-radius: 50px;
   gap: 1rem;
   align-items: center;
@@ -114,8 +114,8 @@
 }
 
 .plus-minus{
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background-color: #CA5050;
   border-radius: 50px;
   font-size: 8px;
@@ -124,6 +124,7 @@
   justify-content: center;
   flex-shrink: 0;
   color: #EADDCA;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .qty{
@@ -137,4 +138,11 @@
   align-items: center;
   justify-content: center;
   margin-top: auto;
+  width: 100%;
+}
+
+.cart-btn{
+  padding-top: 4px;
+  width: 100%;
+  height: 3rem;
 }

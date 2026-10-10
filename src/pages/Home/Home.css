@@ -81,3 +81,13 @@
     stroke-dashoffset: 0;
   }
 }
+
+.home-button-wrapper{
+  width: 7rem;
+}
+
+.home-button{
+  padding-top: 4px;
+  height: 2.5rem;
+  width: 100%;
+}

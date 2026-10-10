@@ -228,3 +228,36 @@ export const popupScale = {
     }
   }
 };
+
+// SPRING BUTTON  
+export const buttonScale = {
+  inactive: {
+    scale: 1, 
+  }, 
+  active: {
+    scale: 0.5, 
+    transition: {
+      duration: 0.5, 
+      type: "spring", 
+      stiffness: 180, 
+      damping: 14
+    }
+  }
+}
+
+// SLIDE UP BUTTON 
+export const slideUpButton = {
+  hidden: {
+    y: 15,
+  }, 
+  visible: {
+    y: 0, 
+    transition: {
+      duration: 0.4, 
+      ease: "easeInOut"
+    }
+  }, 
+  exit: {
+    y: 20
+  }
+}

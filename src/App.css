@@ -218,3 +218,28 @@ body {
   src: local("Montserrat.ttf"), 
     url("./fonts/Montserrat.ttf") format("truetype");
 }
+
+/* BUTTON  */
+.button{
+  box-shadow: 3px 3px 0px #650000;
+  color: #EADDCA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  font-family: "Groove";
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  /* width: 100%; */
+}
+
+.red{
+  background-color: #CA5050;
+}
+
+.light{
+  background-color: #D88E86;
+}

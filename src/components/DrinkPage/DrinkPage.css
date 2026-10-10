@@ -169,6 +169,13 @@
   pointer-events: none;
 }
 
+.drink-button{
+  padding-top: 4px;
+  height: 3rem;
+  margin: 0 2rem;
+  width: 100%;
+}
+
 /* .footer{
   display: flex;
   align-items: center;

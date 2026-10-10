@@ -1,11 +1,17 @@
-
+import { motion } from "motion/react";
+import { buttonScale, staggerContainer, staggerChildren } from "../../../animations/motionVariants";
 
 const CartItems = ({cart, updateQuantity, removeFromCart}) => {
 
   return(
-    <div className="cart-items-container">
+    <motion.div 
+      className="cart-items-container"
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+    >
       {cart.map((drink) => (
-        <div className="cart-item-wrapper">
+        <motion.div variants={staggerChildren} className="cart-item-wrapper">
           {/* DRINK  */}
           <div className="cart-drink">
             <img src="/Coffee.png" alt="Coffee" />
@@ -29,12 +35,15 @@ const CartItems = ({cart, updateQuantity, removeFromCart}) => {
             <div className="cart-qty">
               <div className="cart-qty-wrapper">
                 {/* MINUS  */}
-                <div
-                 className="plus-minus"
-                 onClick={() => drink.quantity === 1 ? 
-                  removeFromCart(drink.cartItemId) : 
-                  updateQuantity(drink.drinkItemId, Number(drink.quantity) - 1)
-                 }
+                <motion.div
+                  className="plus-minus"
+                  onClick={() => drink.quantity === 1 ? 
+                    removeFromCart(drink.cartItemId) : 
+                    updateQuantity(drink.drinkItemId, Number(drink.quantity) - 1)
+                  }
+                  variants={buttonScale}
+                  initial="inactive"
+                  whileTap={"active"}
                 >
                   {drink.quantity === 1 ? (
                     <i className="fa-solid fa-trash"/>
@@ -42,23 +51,26 @@ const CartItems = ({cart, updateQuantity, removeFromCart}) => {
                     <i className="fa-solid fa-minus"/>
                   )}
                  
-                </div>
+                </motion.div>
 
                 <span className="qty">{drink.quantity}</span>
 
-                <div 
+                <motion.div 
                   className="plus-minus"
                   onClick={() => updateQuantity(drink.drinkItemId, Number(drink.quantity) + 1)}
+                  variants={buttonScale}
+                  initial="inactive"
+                  whileTap={"active"}
                 >
                   <i className="fa-solid fa-plus"/>
-                </div>
+                </motion.div>
               </div>
             </div>
 
           </div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   )
 }
 
