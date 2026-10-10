@@ -26,7 +26,7 @@
 
 .header-logo-img{
   /* width: 2rem; */
-  height: 1.7rem;
+  height: 2.5rem;
 }
 
 .cart-menu{
@@ -53,4 +53,8 @@
   height: 3px;
   background-color: #EADDCA;
   border-radius: 50px;
+}
+
+.x{
+  color: #EADDCA;
 }

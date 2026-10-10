@@ -40,6 +40,14 @@ export const staggerContainer = {
       delayChildren: 0.07, 
       staggerChildren: 0.2
     }
+  }, 
+  exit: {
+    opacity: 0, 
+    y: -20, 
+    transition: {
+      duration: 0.5, 
+      ease: "easeInOut"
+    }
   }
 }
 
@@ -259,5 +267,25 @@ export const slideUpButton = {
   }, 
   exit: {
     y: 20
+  }
+}
+
+// HEADER ENTER EXIT ANIMATION 
+export const headerAnimation = {
+  hidden: {
+    x: 30, 
+    opacity: 0
+  },
+  visible: {
+    x: 0, 
+    opacity: 1, 
+    transition: { 
+      duration: 0.3, 
+      ease: "easeInOut"
+    }
+  }, 
+  exit: {
+    opacity: 0, 
+    x: 30
   }
 }

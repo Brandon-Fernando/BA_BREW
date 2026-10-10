@@ -50,7 +50,7 @@ const CartSidebar = ({onClose}) => {
       )}
      
 
-      <div className="cart-button">
+      <div className="cart-button-wrapper">
         <motion.button 
           onClick={() => handleCheckoutClick()} 
           className="cart-btn button red"

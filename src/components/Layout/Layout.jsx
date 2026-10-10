@@ -48,6 +48,8 @@ const Layout = () => {
     <div className="layout">
       {location.pathname !== "/checkout" && (
         <Header 
+          menuSidebarOpen={menuSidebarOpen}
+          cartSidebarOpen={cartSidebarOpen}
           setMenuSidebarOpen={setMenuSidebarOpen}
           setCartSidebarOpen={setCartSidebarOpen}
         />

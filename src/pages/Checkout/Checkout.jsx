@@ -6,6 +6,12 @@ import Button from "../../components/Button/Button";
 import { useCart } from "../../context/CartContext";
 import BackButton from "../../components/Button/BackButton";
 import LoadingAnimation from "../../components/Loading/LoadingAnimation";
+import { AnimatePresence, motion } from "framer-motion";
+import { staggerContainer, staggerChildren } from "../../animations/motionVariants";
+import Loading from "../../components/Loading/Loading";
+import OrderPlaced from "./components/OrderPlaced";
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Checkout = () => {
   const { cart } = useCart();
@@ -15,7 +21,7 @@ const Checkout = () => {
     lastName: "", 
     phoneNumber: ""
   })
-
+  const [orderPlaced, setOrderPlaced] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,7 +64,7 @@ const Checkout = () => {
     });
   };
 
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = async () => {
     const nextErrors = Object.fromEntries(
       Object.entries(values).map(([field, value]) => [
         field,
@@ -78,24 +84,40 @@ const Checkout = () => {
     }
 
     // Place the order here.
+    try{
+      setIsLoading(true);
+
+      await delay(2909);
+
+      setOrderPlaced(true)
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false)
+    }
+
   };
 
   const handleOptIn = () => {
     setOptIn(!optIn)
   }
-
-  if(isLoading) {
-    return(
-      <div className="checkout-container">
-        <LoadingAnimation isLoading={isLoading}/>
-      </div>
-    )
-  }
   
 
-  return(
-    <div className="checkout-container">
-      {/* EXIT BUTTON  */}
+
+
+  return (
+  <AnimatePresence mode="wait">
+    {isLoading ? (
+      <Loading 
+        key="loading"
+        isLoading={isLoading}
+        text="placing order"
+      />
+    ) : orderPlaced ? (
+      <OrderPlaced />
+    ) : (
+      <div key="checkout" className="checkout-container">
+        {/* EXIT BUTTON  */}
       <BackButton path={-1}/>
       
      
@@ -146,14 +168,17 @@ const Checkout = () => {
         className="footer"
         // style={{ visibility: overlayOpen ? "hidden" : "visible" }}
       >
-        <Button
+        <button 
+          className="checkout-button button red"
           onClick={() => handlePlaceOrder()}
-          size="regular"
-          text="Add to cart"
-        />
+        >
+          place order
+        </button>
       </div>
-    </div>
-  )
+      </div>
+    )}
+  </AnimatePresence>
+);
 }
 
 export default Checkout;
