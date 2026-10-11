@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { staggerContainer, staggerChildren } from "../../animations/motionVariants";
 import Loading from "../../components/Loading/Loading";
 import OrderPlaced from "./components/OrderPlaced";
+import { createOrder } from "./components/orderService";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -87,8 +88,19 @@ const Checkout = () => {
     try{
       setIsLoading(true);
 
-      await delay(2909);
+      await createOrder({
+        checkoutData: values,
+        cart: cart.map((item) => ({
+          id: item.id,
+          cartItemId: item.cartItemId,
+          title: item.title,
+          quantity: item.quantity,
+          customizations: item.customizations
+        })),
+      })
 
+      await delay(2909);
+      
       setOrderPlaced(true)
     } catch (error) {
       console.error(error);
@@ -102,6 +114,7 @@ const Checkout = () => {
     setOptIn(!optIn)
   }
   
+  console.log(cart)
 
 
 

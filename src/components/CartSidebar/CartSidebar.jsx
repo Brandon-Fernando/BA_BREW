@@ -57,7 +57,7 @@ const CartSidebar = ({onClose}) => {
           variants={slideUpButton}
           initial="hidden"
           animate="visible"
-          exit="exit"d
+          exit="exit"
         >
           checkout
         </motion.button>

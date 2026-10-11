@@ -1,30 +1,45 @@
-
+import { motion, stagger } from "motion/react";
+import { staggerContainer, staggerChildren } from "../../../animations/motionVariants";
+import { useNavigate } from "react-router-dom";
 
 const OrderPlaced = () => {
+  const navigate = useNavigate();
 
   return(
-    <div className="order-placed-container">
+    <motion.div 
+      className="order-placed-container"
+      variants={staggerContainer}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="order-placed-title">
-        <span>Order</span>
-        <span>Placed</span>
+        <motion.span variants={staggerChildren}>Order</motion.span>
+        <motion.span variants={staggerChildren}>Placed</motion.span>
       </div>
 
-      <img src="/Logo/OrderPlaced.png" alt="order placed" />
+      <motion.img 
+        src="/Logo/OrderPlaced.png" 
+        alt="order placed" 
+        variants={staggerChildren}
+      />
 
       <div className="order-placed-buttons-wrapper">
-        <button 
+        <motion.button 
           className="order-placed-button button light"
+          variants={staggerChildren}
         >
           track order
-        </button>
+        </motion.button>
 
-        <button  
+        <motion.button  
           className="order-placed-button button red"
+          variants={staggerChildren}
+          onClick={() => navigate("/")}
         >
           exit
-        </button>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
