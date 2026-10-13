@@ -6,6 +6,7 @@ import Home from './pages/Home/Home'
 import MenuOption from './pages/Menu/components/MenuOption'
 import Menu from './pages/Menu/Menu'
 import Checkout from './pages/Checkout/Checkout'
+import Track from './pages/Track/Track'
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
         <Route path="/menu/:menuOption" element={<MenuOption />}/>
 
         <Route path="/menu/:menuOption/:selectedDrink" element={<DrinkPage />}/>
+
+        <Route path='/track' element={<Track />}/>
 
         <Route path="/checkout" element={<Checkout />}/>
       </Route>
