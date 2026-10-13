@@ -7,6 +7,10 @@ import MenuOption from './pages/Menu/components/MenuOption'
 import Menu from './pages/Menu/Menu'
 import Checkout from './pages/Checkout/Checkout'
 import Track from './pages/Track/Track'
+import AdminSignIn from './pages/Admin/AdminSignIn'
+import AdminRoute from './pages/Admin/AdminRoute'
+import AdminOrders from './pages/Admin/AdminOrders'
+import AdminOrderInfo from './pages/Admin/components/AdminOrderInfo'
 
 function App() {
 
@@ -23,6 +27,14 @@ function App() {
         <Route path="/menu/:menuOption/:selectedDrink" element={<DrinkPage />}/>
 
         <Route path='/track' element={<Track />}/>
+
+        <Route path='/admin/signin' element={<AdminSignIn />}/>
+
+        <Route element={<AdminRoute />}>
+          <Route path="/admin/orders" element={<AdminOrders />} />
+
+          <Route path="/admin/orders/:orderNum" element={<AdminOrderInfo />}/>
+        </Route>
 
         <Route path="/checkout" element={<Checkout />}/>
       </Route>

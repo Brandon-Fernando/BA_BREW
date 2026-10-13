@@ -10,10 +10,21 @@ export const createOrder = async ({checkoutData, cart}) => {
   const orderData = {
     orderNumber: generateOrderNumber(),
     customerInfo: checkoutData, 
-    cart: cart
+    cart: cart, 
+    status: "preparing", 
+    orderedAt: serverTimestamp()
   }
 
   const docRef = await addDoc(collection(db, "orders"), orderData)
 
   return docRef.id
+}
+
+export const getAllOrders = async () => {
+  const querySnapshot = await getDocs(collection(db, "orders"));
+
+  return querySnapshot.docs.map((orderDoc) => ({
+    id: orderDoc.id, 
+    ...orderDoc.data(),
+  }))
 }

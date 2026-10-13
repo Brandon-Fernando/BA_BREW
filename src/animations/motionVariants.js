@@ -289,3 +289,21 @@ export const headerAnimation = {
     x: 30
   }
 }
+
+// FILTER 
+export const filterAnimation = {
+  inactive: {
+    boxShadow: "2px 2px 0px #B4A692", 
+    backgroundColor: "#E1D3BF",
+    color: "#B4A692"
+  }, 
+  active: {
+    boxShadow: "0px 0px 0px", 
+    backgroundColor: "#B4A692", 
+    color: "#E1D3BF", 
+    transition: {
+      duration: 0.2, 
+      ease: "easeInOut"
+    }
+  }
+}

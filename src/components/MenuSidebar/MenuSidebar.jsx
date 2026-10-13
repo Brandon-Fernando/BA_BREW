@@ -62,6 +62,10 @@ const MenuSidebar = ({onClose}) => {
           </button>
         ))}
       </nav>
+
+      <div onClick={() => handleNav("/admin/signin")} className="admin-sign-in">
+        <span>admin sign in </span>
+      </div>
     </motion.aside>
   )
 }

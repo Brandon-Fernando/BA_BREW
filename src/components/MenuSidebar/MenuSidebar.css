@@ -23,7 +23,7 @@
 .nav-wrapper{
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 100%;
 }
 
@@ -47,4 +47,12 @@
   background-color: #CA5050;
   color: #EADDCA;
 
+}
+
+.admin-sign-in{
+  margin-top: auto;
+  font-family: "Groove";
+  text-transform: uppercase;
+  color: #CA5050;
+  border-bottom: 1px solid #CA5050;
 }
