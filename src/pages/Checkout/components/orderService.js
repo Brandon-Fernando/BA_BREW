@@ -28,3 +28,11 @@ export const getAllOrders = async () => {
     ...orderDoc.data(),
   }))
 }
+
+export const updateOrderStatus = async (orderId, orderStatus) => {
+  const orderRef = doc(db, "orders", orderId);
+
+  await updateDoc(orderRef, {
+    status: orderStatus,
+  })
+}

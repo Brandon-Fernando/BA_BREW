@@ -69,6 +69,24 @@ export const staggerChildren = {
   }
 }
 
+export const staggerChildrenDown = {
+  hidden: { 
+    opacity: 0, 
+    y: -10, 
+    scale: 0.97
+  }, 
+
+  visible: {
+    opacity: 1, 
+    y: 0, 
+    scale: 1, 
+    transition: {
+      duration: 0.4, 
+      ease: "easeInOut"
+    }
+  }
+}
+
 // BACKDROP 
 export const backdropFade = {
   hidden: {opacity: 0}, 
@@ -303,6 +321,87 @@ export const filterAnimation = {
     color: "#E1D3BF", 
     transition: {
       duration: 0.2, 
+      ease: "easeInOut"
+    }
+  }
+}
+
+// ADMIN CARDS  
+export const incompleteAnimation = {
+  hidden: {
+    opacity: 0, 
+  }, 
+  visible: {
+    opacity: 1, 
+    transition: { 
+      duration: 0.1, 
+      delayChildren: 0.07, 
+      staggerChildren: 0.2
+    }
+  }, 
+  exit: {
+    opacity: 0
+  }
+}
+
+export const completeAnimation = {
+  hidden: {
+    opacity: 0, 
+  }, 
+  visible: {
+    opacity: 1, 
+    transition: { 
+      duration: 0.1, 
+    }
+  }, 
+  exit: {
+    opacity: 0
+  }
+}
+
+export const slideInFromRightAdmin = {
+  hidden: {
+    x: 50, 
+    opacity: 0
+  }, 
+  visible: {
+    x: 0, 
+    opacity: 1, 
+    transition: {
+      duration: 0.5, 
+      ease: "easeInOut", 
+      // delay: 0.4
+    }
+  }
+}
+
+export const slideDown = {
+  hidden: {
+    y: -10, 
+    opacity: 0
+  }, 
+  visible: {
+    y: 0, 
+    opacity: 1, 
+    transition: {
+      duration: 0.5, 
+      ease: "easeInOut"
+    }
+  }
+}
+
+
+// COMPLETE BUTTON  
+export const completeButton = {
+  inactive: {
+    backgroundColor: "#DBA89B", 
+    boxShadow: "0px 0px 0px"
+  }, 
+  active: {
+    backgroundColor: "#CA5050", 
+    boxShadow: "2px 2px 0px #650000", 
+    transition: {
+      duration: 0.3, 
       ease: "easeInOut"
     }
   }

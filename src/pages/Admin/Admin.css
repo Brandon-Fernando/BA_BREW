@@ -73,6 +73,11 @@
 
 
 /* ORDER LIST  */
+.admin-order-list-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .order-card{
   display: flex;
   flex-direction: column;

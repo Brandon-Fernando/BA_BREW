@@ -1,7 +1,8 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, stagger } from "framer-motion";
 import { useState } from "react";
+import { incompleteAnimation, completeAnimation, slideDown, staggerChildrenDown, slideInFromLeft, slideInFromRightAdmin } from "../../../animations/motionVariants";
 
-const OrderCard = ({ cartItem }) => {
+const OrderCard = ({ cartItem, onComplete }) => {
   const [isComplete, setIsComplete] = useState(false);
 
   return (
@@ -26,80 +27,88 @@ const OrderCard = ({ cartItem }) => {
           {!isComplete ? (
             <motion.div
               key="order-content"
+              variants={incompleteAnimation}
               className="order-content incomplete"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
             >
-              <div className="order-card-img">
+              <motion.div variants={staggerChildrenDown} className="order-card-img">
                 <img
                   src="/Coffee.png"
                   alt="Drink"
                   className="order-drink"
                 />
-              </div>
+              </motion.div>
 
-              <span className="cart-item-title">
+              <motion.span variants={staggerChildrenDown} className="cart-item-title">
                 {cartItem.title}
-              </span>
+              </motion.span>
 
               <div className="order-customization">
                 {Object.entries(cartItem.customizations ?? {}).map(
                   ([name, value]) => (
-                    <div key={name} className="customization-card">
+                    <motion.div variants={staggerChildrenDown} key={name} className="customization-card">
                       <span className="cust-name">{name}</span>
                       <span className="cust-val">{value}</span>
-                    </div>
+                    </motion.div>
                   )
                 )}
               </div>
 
-              <button
+              <motion.button
                 className="button red order-card-button"
-                onClick={() => setIsComplete(true)}
+                onClick={() => {
+                  setIsComplete(true);
+                  onComplete(cartItem.cartItemId, true)
+                }}
+                variants={staggerChildrenDown}
               >
                 Complete
-              </button>
+              </motion.button>
             </motion.div>
           ) : (
             <motion.div
               key="order-complete"
               className="order-content complete"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
+              variants={completeAnimation}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               style={{
                 height: "7rem",
                 boxSizing: "border-box",
               }}
             >
               <div className="order-complete-img">
-                <div className="order-card-img">
+                <motion.div variants={slideInFromRightAdmin} className="order-card-img">
                   <img
                     src="/Coffee.png"
                     alt="Drink"
                     className="order-drink"
                   />
-                </div>
+                </motion.div>
 
-                <div className="complete-msg">
+                <motion.div variants={slideInFromLeft} className="complete-msg">
                   <span>Complete</span>
 
                   <div className="complete-img">
                     <i className="fa-solid fa-check" />
                   </div>
-                </div>
+                </motion.div>
               </div>
 
-              <div
-                onClick={() => setIsComplete(false)}
+              <motion.div
+                onClick={() => {
+                  setIsComplete(false);
+                  onComplete(cartItem.cartItemId, false)
+                }}
                 className="details-button"
+                variants={slideDown}
               >
                 <span>details</span>
                 <i className="fa-solid fa-angle-down" />
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

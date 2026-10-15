@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import BackButton from "../../../components/Button/BackButton";
 import { useParams } from "react-router-dom";
-import { getAllOrders } from "../../Checkout/components/orderService";
+import { getAllOrders, updateOrderStatus } from "../../Checkout/components/orderService";
 import OrderCard from "./OrderCard";
-
+import Loading from "../../../components/Loading/Loading";
+import { motion } from "framer-motion";
+import { completeButton } from "../../../animations/motionVariants";
 
 
 const AdminOrderInfo = () => {
   const [order, setOrder] = useState();
   const { orderNum } = useParams();
+  const [completeIds, setCompleteIds] = useState(() => new Set());
 
   useEffect(() => {
     const loadOrder = async () => {
@@ -27,16 +30,35 @@ const AdminOrderInfo = () => {
     loadOrder();
   }, [orderNum])
 
-  console.log(order)
-
   if (!order) {
     return (
       <div className="admin-order-info">
         <BackButton path="/admin/orders" />
-        <p>Loading order or order not found.</p>
+        <Loading isLoading={true} text={"loading order"}/>
       </div>
     );
   }
+
+    const setItemComplete = (id, complete) => {
+    setCompleteIds((previous) => {
+      const next = new Set(previous);
+
+      if(complete) {
+        next.add(id);
+      } else {
+        next.delete(id)
+      }
+
+      return next;
+    })
+  }
+
+  const completedCount = order.cart.filter((item) => 
+    completeIds.has(item.cartItemId)
+  ).length;
+
+  const allComplete = 
+    order.cart.length > 0 && completedCount === order.cart.length;
 
   const ORDER_SUB_INFO = [
     { label: "Order No.", value: order.orderNumber },
@@ -66,15 +88,28 @@ const AdminOrderInfo = () => {
       
       <div className="order-cart">
         {order.cart.map((cartItem) => (
-          <OrderCard cartItem={cartItem}/>
+          <OrderCard 
+            cartItem={cartItem}
+            onComplete={setItemComplete}
+          />
         ))}
       </div>
-
-      <div className="footer">
-        <button className="admin-complete-button button red">
-          complete order
-        </button>
-      </div>
+      
+      {order.status !== "completed" && (
+        <div className="footer">
+          <motion.button 
+            className="admin-complete-button button red"
+            variants={completeButton}
+            initial="inactive"
+            animate={allComplete ? "active" : "inactive"}
+            disabled={!allComplete}
+            onClick={() => updateOrderStatus(order.id, "completed")}
+          >
+            complete order
+          </motion.button>
+        </div>
+      )}
+      
 
     </div>
   )

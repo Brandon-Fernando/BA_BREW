@@ -2,21 +2,32 @@ import { useEffect, useState } from "react";
 import { getAllOrders } from "../../Checkout/components/orderService";
 import { Link } from "react-router-dom";
 
-const AdminOrderList = () => {
-  const [orders, setOrders] = useState([]);
-
+const AdminOrderList = ({filterOption}) => {
+  const [filterOrders, setFilterOrders] = useState([]);
+ 
   useEffect(() => {
     const loadOrders = async () => {
       const allOrders = await getAllOrders();
-      setOrders(allOrders);
+      // setOrders(allOrders);
+      // const filtered = allOrders.filter((order) => 
+      //   order.status === filterOption
+      // )
+      const filtered = 
+        filterOption === "all" 
+        ? allOrders 
+        : allOrders.filter((order) => order.status === filterOption) 
+      
+
+
+      setFilterOrders(filtered);
     }
 
     loadOrders();
-  }, []);
+  }, [filterOption]);
   
   return(
     <div className="admin-order-list-container">
-      {orders.map((order) => (
+      {filterOrders.map((order) => (
         <Link to={`/admin/orders/${order.orderNumber}`} className="order-card">
           {/* NAME STATUS  */}
           <div className="order-name-status">

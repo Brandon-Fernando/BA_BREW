@@ -4,8 +4,7 @@ import { filterAnimation } from "../../../animations/motionVariants";
 
 const FILTER_OPTIONS = ["all", "preparing", "completed"];
 
-const FilterOrders = () => {
-  const [filterOption, setFilterOption] = useState("all");
+const FilterOrders = ({filterOption, setFilterOption}) => {
 
   return(
     <div className="filter-orders-container">
@@ -20,6 +19,7 @@ const FilterOrders = () => {
           <motion.div 
             className="filter"
             variants={filterAnimation}
+            initial="inactive"
             animate={filter === filterOption ? "active" : "inactive"}
             onClick={() => setFilterOption(filter)}
           >
