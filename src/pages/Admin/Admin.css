@@ -78,6 +78,15 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.admin-loading{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .order-card{
   display: flex;
   flex-direction: column;

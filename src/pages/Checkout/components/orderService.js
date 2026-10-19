@@ -1,5 +1,5 @@
 import { db } from "../../../../utils/firebase";
-import { collection, addDoc, serverTimestamp, getDocs, updateDoc, doc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, getDocs, updateDoc, doc, onSnapshot } from "firebase/firestore";
 
 const generateOrderNumber = () => {
   return Math.floor(100000 + Math.random() * 900000);
@@ -36,3 +36,18 @@ export const updateOrderStatus = async (orderId, orderStatus) => {
     status: orderStatus,
   })
 }
+
+export const subscribeToOrders = (onOrders, onError) => {
+  return onSnapshot(
+    collection(db, "orders"), // Use your actual collection name
+    (snapshot) => {
+      const orders = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      onOrders(orders);
+    },
+    onError
+  );
+};
