@@ -114,18 +114,20 @@ const Checkout = () => {
     setOptIn(!optIn)
   }
   
-  console.log(cart)
 
 
 
   return (
   <AnimatePresence mode="wait">
     {isLoading ? (
-      <Loading 
-        key="loading"
-        isLoading={isLoading}
-        text="placing order"
-      />
+      <div className="checkout-load">
+        <Loading 
+          key="loading"
+          isLoading={isLoading}
+          text="placing order"
+        />
+      </div>
+      
     ) : orderPlaced ? (
       <OrderPlaced />
     ) : (

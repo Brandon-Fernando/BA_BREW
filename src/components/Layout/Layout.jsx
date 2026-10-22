@@ -14,7 +14,7 @@ const Layout = () => {
   const location = useLocation();
   const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
   const [cartPopupOpen, setCartPopupOpen] = useState(false);
-  const [cartSidebarOpen, setCartSidebarOpen] = useState(false);
+  const [cartSidebarOpen, setCartSidebarOpen] = useState(true);
 
   const overlayOpen = Boolean(
     menuSidebarOpen ||

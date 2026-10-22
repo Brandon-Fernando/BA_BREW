@@ -32,9 +32,12 @@ const AdminOrderInfo = () => {
 
   if (!order) {
     return (
-      <div className="admin-order-info">
+      <div className="admin-order-load">
         <BackButton path="/admin/orders" />
-        <Loading isLoading={true} text={"loading order"}/>
+        <div className="load-admin">
+          <Loading isLoading={true} text={"loading order"}/>
+        </div>
+       
       </div>
     );
   }

@@ -50,7 +50,7 @@ const MenuSidebar = ({onClose}) => {
       animate="visible"
       exit="exit"
     >
-      <img src="/Logo/Logo.png" alt="" className="main-logo"/>
+      <img src="/Home/Main_Logo.png" alt="" className="main-logo"/>
       {/* NAV OPTIONS  */}
       <nav className="nav-wrapper">
         {NAV_OPTIONS.map((option) => (
