@@ -4,10 +4,13 @@ const TYPE = ["iced", "hot"];
 const COLD_FOAM = [
 	"None",
 	"Vanilla", 
-	"Ube", 
+  "Blueberry",
 	"Maple Cinnamon", 
 	"Caramel", 
-	"Sweet Cream"
+  "Coconut", 
+  "Pumpkin Spiced", 
+  "Cookie Butter", 
+  "Gingerbread"
 ];
 const MILK = ["oat", "2%", "whole"];
 
@@ -36,7 +39,7 @@ export const SPECIALTY_COFFEES = [
     menu: "specialty coffees"
   }, 
   {
-    id: "pumpkin-spided",
+    id: "pumpkin-spiced",
     title: "Pumpkin Spiced", 
     options: CUSTOMIZE_OPTIONS, 
     menu: "specialty coffees"
@@ -48,7 +51,7 @@ export const SPECIALTY_COFFEES = [
     menu: "specialty coffees"
   }, 
   {
-    id: "maple-cinnamon",
+    id: "french-toast",
     title: "Maple Cinnamon", 
     options: CUSTOMIZE_OPTIONS, 
     menu: "specialty coffees"
@@ -58,5 +61,17 @@ export const SPECIALTY_COFFEES = [
     title: "Cookie Butter", 
     options: CUSTOMIZE_OPTIONS, 
     menu: "specialty coffees"
+  }, 
+  {
+    id:"gingerbread"
+  },
+  {
+    id: "caramel"
+  }, 
+  {
+    id: "blueberry"
+  },
+  { 
+    id: "fog-breaker"
   }
 ]
