@@ -1,14 +1,13 @@
 .header-container{
   height: 4rem;
   width: 100%;
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
   position: fixed;
   top: 0;
-  z-index: 99;
+  z-index: 98;
   background-color: #EADDCA;
   /* -webkit-mask-image: linear-gradient(to bottom, black, transparent);
   mask-image: linear-gradient(to bottom, black, transparent); */

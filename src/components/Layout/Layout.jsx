@@ -46,12 +46,18 @@ const Layout = () => {
 
   return(
     <div className="layout">
-      {(location.pathname !== "/checkout" || menuSidebarOpen) && (
+      {/* {(location.pathname !== "/checkout" || menuSidebarOpen) && (
         <Header 
           menuSidebarOpen={menuSidebarOpen}
           cartSidebarOpen={cartSidebarOpen}
           setMenuSidebarOpen={setMenuSidebarOpen}
           setCartSidebarOpen={setCartSidebarOpen}
+        />
+      )} */}
+      {!menuSidebarOpen && (
+        <Header 
+          menuSidebarOpen={menuSidebarOpen}
+          setMenuSidebarOpen={setMenuSidebarOpen}
         />
       )}
       

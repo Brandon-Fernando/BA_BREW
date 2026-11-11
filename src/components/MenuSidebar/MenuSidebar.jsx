@@ -1,6 +1,6 @@
 import "./MenuSidebar.css";
 import { motion } from "motion/react";
-import { sidebarSlide } from "../../animations/motionVariants";
+import { menuSidebarSlide, sidebarSlide } from "../../animations/motionVariants";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -45,7 +45,7 @@ const MenuSidebar = ({onClose}) => {
   return(
     <motion.aside 
       className="menu-sidebar-container"
-      variants={sidebarSlide}
+      variants={menuSidebarSlide}
       initial="hidden"
       animate="visible"
       exit="exit"

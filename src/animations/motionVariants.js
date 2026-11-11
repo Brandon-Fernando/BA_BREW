@@ -100,6 +100,12 @@ export const sidebarSlide = {
   exit: {x: 400, transition: { duration: 0.4 }}
 }
 
+export const menuSidebarSlide = {
+  hidden: {x: -400},
+  visible: {x: 0, transition: { duration: 0.4, delayChildren: 0.08, staggerChildren: 0.09, }}, 
+  exit: {x: -400, transition: { duration: 0.4 }}
+}
+
 // HEADER 
 export const headerSlide = {
   hidden: {
