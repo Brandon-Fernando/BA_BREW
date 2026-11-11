@@ -14,7 +14,7 @@ const Layout = () => {
   const location = useLocation();
   const [menuSidebarOpen, setMenuSidebarOpen] = useState(false);
   const [cartPopupOpen, setCartPopupOpen] = useState(false);
-  const [cartSidebarOpen, setCartSidebarOpen] = useState(true);
+  const [cartSidebarOpen, setCartSidebarOpen] = useState(false);
 
   const overlayOpen = Boolean(
     menuSidebarOpen ||
@@ -46,7 +46,7 @@ const Layout = () => {
 
   return(
     <div className="layout">
-      {location.pathname !== "/checkout" && (
+      {(location.pathname !== "/checkout" || menuSidebarOpen) && (
         <Header 
           menuSidebarOpen={menuSidebarOpen}
           cartSidebarOpen={cartSidebarOpen}
@@ -97,21 +97,6 @@ const Layout = () => {
               setCartSidebarOpen={setCartSidebarOpen}
             />
 
-          </>
-        )}
-
-        {cartSidebarOpen && (
-          <>
-            <motion.div 
-              className="backdrop"
-              onClick={() => setCartSidebarOpen(false)}
-              variants={backdropFade}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            />
-
-            <CartSidebar onClose={() => setCartSidebarOpen(false)}/>
           </>
         )}
       </AnimatePresence>
