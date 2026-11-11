@@ -6,14 +6,21 @@
   height: 100dvh;
   background: #EADDCA;
   z-index: 101;
-  padding: 1.5rem;
+  padding: 2rem;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
   display: flex;
   flex-direction: column;
-  padding-top: 6rem;
   align-items: center;
   gap: 4rem;
+}
+
+.close-x{
+  font-family: "Chunk";
+  text-transform: uppercase;
+  color: #CA5050;
+  margin-left: auto;
+  cursor: pointer;
 }
 
 /* LOGO  */

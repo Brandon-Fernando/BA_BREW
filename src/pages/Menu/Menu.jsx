@@ -9,14 +9,15 @@ const Menu = () => {
     <div className="menu-container">
       {/* TITLE  */}
       {/* <img src="/Menu/Menu.png" alt="Menu" className="menu-title"/> */}
-      <div className="menu-title">
+      {/* <div className="menu-title">
         <span>Drinks</span>
         
         <div className="menu-cursive">
           <CursiveTitles type="menu"/>
         </div>
         
-      </div>
+      </div> */}
+      <img src="/Menu/Menu-Title.png" alt="Menu" className="menu-title"/>
 
       {/* MENU LIST  */}
       <CoffeeCards />

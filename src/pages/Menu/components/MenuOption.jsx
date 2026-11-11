@@ -20,13 +20,14 @@ const MenuOption = () => {
       <div className="specialty-drinks-wrapper">
         {/* <hr className="title-line"/> */}
 
-        <span className="specialty-title">Specialty</span>
+        {/* <span className="specialty-title">Specialty</span>
 
         <div className="cursive-subtitle">
           <CursiveTitles type={"drinks"}/>
-        </div>
+        </div> */}
 
         {/* <hr className="title-line"/> */}
+        <img src="/Menu/Specialty.png" alt="Specialty" className="menu-title"/>
       </div>
 
       {menuType && (

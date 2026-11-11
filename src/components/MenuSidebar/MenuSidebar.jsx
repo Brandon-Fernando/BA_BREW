@@ -1,6 +1,6 @@
 import "./MenuSidebar.css";
 import { motion } from "motion/react";
-import { menuSidebarSlide, sidebarSlide } from "../../animations/motionVariants";
+import { menuSidebarSlide, sidebarSlide, staggerContainer, staggerChildren } from "../../animations/motionVariants";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -50,22 +50,41 @@ const MenuSidebar = ({onClose}) => {
       animate="visible"
       exit="exit"
     >
-      <img src="/Home/Main_Logo.png" alt="" className="main-logo"/>
+      {/* <div className="close">
+        <i className="fa-solid fa-x"/>
+
+      </div> */}
+      <span 
+        className="close-x"
+        onClick={() => onClose()}
+      >
+        X
+      </span>
+
+      <motion.img 
+        src="/Menu/Stool.png" 
+        alt="" 
+        className="main-logo"
+        variants={staggerChildren}
+      />
+
       {/* NAV OPTIONS  */}
       <nav className="nav-wrapper">
         {NAV_OPTIONS.map((option) => (
-          <button 
+          <motion.button 
             onClick={() => handleNav(option.path)}
+            key={option.label}
             className={`nav-button ${isActive(option.path) ? "active" : ""}`}
+            variants={staggerChildren}
           >
             {option.label}
-          </button>
+          </motion.button>
         ))}
       </nav>
 
-      <div onClick={() => handleNav("/admin/signin")} className="admin-sign-in">
+      <motion.div variants={staggerChildren} onClick={() => handleNav("/admin/signin")} className="admin-sign-in">
         <span>admin sign in </span>
-      </div>
+      </motion.div>
     </motion.aside>
   )
 }
