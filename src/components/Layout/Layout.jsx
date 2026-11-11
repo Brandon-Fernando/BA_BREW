@@ -54,12 +54,14 @@ const Layout = () => {
           setCartSidebarOpen={setCartSidebarOpen}
         />
       )} */}
-      {!menuSidebarOpen && (
-        <Header 
-          menuSidebarOpen={menuSidebarOpen}
-          setMenuSidebarOpen={setMenuSidebarOpen}
-        />
-      )}
+      {!menuSidebarOpen &&
+        location.pathname !== "/cart" &&
+        location.pathname !== "/checkout" && (
+          <Header
+            menuSidebarOpen={menuSidebarOpen}
+            setMenuSidebarOpen={setMenuSidebarOpen}
+          />
+        )}
       
 
       <Outlet 

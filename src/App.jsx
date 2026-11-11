@@ -11,6 +11,7 @@ import AdminSignIn from './pages/Admin/AdminSignIn'
 import AdminRoute from './pages/Admin/AdminRoute'
 import AdminOrders from './pages/Admin/AdminOrders'
 import AdminOrderInfo from './pages/Admin/components/AdminOrderInfo'
+import Cart from './pages/Cart/Cart'
 
 function App() {
 
@@ -37,6 +38,8 @@ function App() {
         </Route>
 
         <Route path="/checkout" element={<Checkout />}/>
+
+        <Route path="/cart" element={<Cart />}/>
       </Route>
     </Routes>
   )

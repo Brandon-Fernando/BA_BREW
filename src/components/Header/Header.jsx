@@ -67,23 +67,32 @@
 
 // export default Header;
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({
   setMenuSidebarOpen
-}) => (
-  <div className="header-container">
-    {/* MENU */}
-    <div 
-      className="header-menu"
-      onClick={() => setMenuSidebarOpen(true)}
-    >
-      <div className="header-line"/>
-      <div className="header-line"/>
-      <div className="header-line"/>
-    </div>
+}) => {
+  const navigate = useNavigate();
+  
+  return(
+    <div className="header-container">
+      {/* MENU */}
+      <div 
+        className="header-menu"
+        onClick={() => setMenuSidebarOpen(true)}
+      >
+        <div className="header-line"/>
+        <div className="header-line"/>
+        <div className="header-line"/>
+      </div>
 
-     <i className="fa-solid fa-cart-shopping cart-icon"/>
-  </div>
-)
+      <i 
+        className="fa-solid fa-cart-shopping cart-icon"
+        onClick={() => navigate("/cart")}
+      />
+    </div>
+  )
+ 
+}
 
 export default Header;

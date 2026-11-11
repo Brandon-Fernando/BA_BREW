@@ -41,6 +41,7 @@ const imageSources = ["/Home/Main_Logo.png", "/Home/Chairs.png"];
 
 const Home = () => {
   const [status, setStatus] = useState("loading");
+  const navigate = useNavigate();
 
   useEffect(() => {
     let cancelled = false;
@@ -101,7 +102,7 @@ const Home = () => {
         <motion.button 
           className="home-button button red"
           variants={staggerChildren}
-          
+          onClick={() => navigate("/menu")}
         >
           start order
         </motion.button>

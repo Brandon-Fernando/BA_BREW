@@ -1,0 +1,28 @@
+
+.cart-page-container{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+  width: 100%;
+  height: 100dvh;
+  gap: 1rem;
+}
+
+.cart-page-title{
+  width: 50vw;
+  max-width: 200px;
+}
+
+.exit{
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: none;
+  border: none;
+  background-color: #CA5050;
+  border-radius: 50px;
+  font-size: 10px;
+  color: #EADDCA;
+  box-shadow: 1.5px 1.5px 0px #650000;
+  margin-right: auto;
+}
