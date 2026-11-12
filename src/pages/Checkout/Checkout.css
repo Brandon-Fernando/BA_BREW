@@ -8,7 +8,50 @@
   overflow-y: auto;
   overflow: visible;
   gap: 1rem;
+  align-items: center;
 }
+
+
+.checkout-header{
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.back-btn{
+  width: 1.5rem;
+  height: 1.5rem;
+  outline: none;
+  border: none;
+  background-color: #CA5050;
+  border-radius: 50px;
+  font-size: 10px;
+  color: #EADDCA;
+  box-shadow: 1.5px 1.5px 0px #650000;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checkout-title{
+  /* width: 50vw; */
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  transform: translateX(-50%);
+}
+
+.checkout-title img{
+  width: 50vw;
+}
+
+.checkout-illustration{
+  width: 50vw;
+  margin: 1rem 0;
+}
+
 
 .checkout-logo-wrapper{
   width: 100%;
@@ -18,8 +61,7 @@
 }
 
 .checkout-logo{
-  width: 6rem;
-  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .order-summary-container{
@@ -268,7 +310,8 @@
 
 .checkout-button{
   width: 100%;
-  margin: 0 1rem;
+  margin: 0 2rem;
+  margin-bottom: 1rem;
   height: 3rem;
   padding-top: 4px;
 }
@@ -283,23 +326,32 @@
   align-items: center;
 }
 
-.order-placed-title{
+.order-placed-illustration{
   display: flex;
   flex-direction: column;
-  font-family: "Chunk";
-  color: #CA5050;
-  text-transform: uppercase;
-  font-size: 60px;
   align-items: center;
+  position: relative;
+  justify-content: center;
+
 }
 
-.order-placed-title span{
-  line-height: 0.9;
+.placed-illustration{
+  width: 60%;
 }
 
-.order-placed-container img{
-  margin-top: -80px;
+.order-placed-title{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
+
+.order-placed-title img{
+  width: 80%;
+}
+
 
 .order-placed-buttons-wrapper{
   display: flex;

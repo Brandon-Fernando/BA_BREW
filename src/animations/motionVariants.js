@@ -294,6 +294,19 @@ export const slideUpButton = {
   }
 }
 
+export const slideUpCart = {
+  hidden: {
+    y: 100, 
+  }, 
+  visible: {
+    y: 0, 
+    transition: {
+      duration: 0.9, 
+      ease: "easeInOut"
+    }
+  }
+}
+
 // HEADER ENTER EXIT ANIMATION 
 export const headerAnimation = {
   hidden: {

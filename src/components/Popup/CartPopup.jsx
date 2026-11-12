@@ -28,14 +28,21 @@ const CartPopup = ({setCartPopupOpen, setCartSidebarOpen}) => {
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={staggerChildren} className="cart-popup-title">
+        {/* <motion.div variants={staggerChildren} className="cart-popup-title">
           <span>Added</span>
           <span>To Cart</span>
         </motion.div>
 
         <motion.div variants={staggerChildren} className="popup-icon-wrapper">
           <img src="/Popup/Popup-Icon.png" alt="Popup Icon" className="popup-icon"/>
-        </motion.div>
+        </motion.div> */}
+        <div className="cart-popup-illustration">
+          <motion.img variants={staggerChildren} src="/Cart/Cart-Illustration.png" alt="Cup" className="cart-cup"/>
+          <div className="cart-title-popup">
+            <motion.img variants={staggerChildren} src="/Cart/Cart-Title.png" alt="Title"/>
+          </div>
+          
+        </div>
 
 
         {/* BUTTONS  */}

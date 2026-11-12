@@ -1,7 +1,7 @@
 .menu-container{
   width: 100%;
   min-height: 100dvh;
-  padding: 5rem 2rem 4rem 2rem;
+  padding: 5.2rem 2rem 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,7 +115,7 @@
 .menu-option-container{
   width: 100%;
   min-height: 100dvh;
-  padding: 5rem 2rem 4rem 2rem;
+  padding: 5.2rem 2rem 4rem 2rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto;

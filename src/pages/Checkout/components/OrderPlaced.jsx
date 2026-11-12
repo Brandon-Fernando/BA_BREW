@@ -12,16 +12,13 @@ const OrderPlaced = () => {
       initial="hidden"
       animate="visible"
     >
-      <div className="order-placed-title">
-        <motion.span variants={staggerChildren}>Order</motion.span>
-        <motion.span variants={staggerChildren}>Placed</motion.span>
-      </div>
+      <div className="order-placed-illustration">
+        <motion.img variants={staggerChildren} src="/Checkout/Checkout-Popup-Illustration.png" alt="Order Placed" className="placed-illustration" />
 
-      <motion.img 
-        src="/Logo/OrderPlaced.png" 
-        alt="order placed" 
-        variants={staggerChildren}
-      />
+        <div className="order-placed-title">
+          <motion.img variants={staggerChildren} src="/Checkout/Checkout-Popup.png" alt="Checkout" />
+        </div>
+      </div>
 
       <div className="order-placed-buttons-wrapper">
         <motion.button 

@@ -2,7 +2,7 @@ import "./Cart.css"
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { motion } from "framer-motion";
-import { slideUpButton } from "../../animations/motionVariants";
+import { slideUpCart, staggerChildren } from "../../animations/motionVariants";
 import CartItems from "../../components/CartSidebar/components/CartItems";
 
 const Cart = () => {
@@ -18,7 +18,7 @@ const Cart = () => {
         <i className="fa-solid fa-x"/>
       </button>
 
-      <img src="/Cart/Cart.png" alt="Cart" className="cart-page-title"/>
+      <motion.img variants={staggerChildren} initial="hidden" animate="visible" src="/Cart/Cart.png" alt="Cart" className="cart-page-title"/>
 
       {cart.length > 0 ? (
         <CartItems 
@@ -35,7 +35,7 @@ const Cart = () => {
         <motion.button 
           className="cart-btn button red"
           onClick={() => navigate("/checkout")}
-          variants={slideUpButton}
+          variants={slideUpCart}
           initial="hidden"
           animate="visible"
           exit="exit"

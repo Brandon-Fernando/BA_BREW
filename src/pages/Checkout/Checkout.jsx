@@ -7,10 +7,11 @@ import { useCart } from "../../context/CartContext";
 import BackButton from "../../components/Button/BackButton";
 import LoadingAnimation from "../../components/Loading/LoadingAnimation";
 import { AnimatePresence, motion } from "framer-motion";
-import { staggerContainer, staggerChildren } from "../../animations/motionVariants";
+import { staggerContainer, staggerChildren, slideUpButton, slideUpCart } from "../../animations/motionVariants";
 import Loading from "../../components/Loading/Loading";
 import OrderPlaced from "./components/OrderPlaced";
 import { createOrder } from "./components/orderService";
+import { useNavigate } from "react-router-dom";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -22,9 +23,10 @@ const Checkout = () => {
     lastName: "", 
     phoneNumber: ""
   })
-  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [orderPlaced, setOrderPlaced] = useState(true);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   // VALIDATE FIELD 
   const validateField = (field, value) => {
@@ -131,66 +133,81 @@ const Checkout = () => {
     ) : orderPlaced ? (
       <OrderPlaced />
     ) : (
-      <div key="checkout" className="checkout-container">
-        {/* EXIT BUTTON  */}
-      <BackButton path={-1}/>
-      
-     
-      <div className="checkout-logo-wrapper">
-         <img src="/Home/Main_Logo.png" alt="Logo" className="checkout-logo"/>
-      </div>
-     
+      <motion.div 
+        key="checkout" 
+        className="checkout-container"
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+      >
 
-      {/* ORDER SUMMARY  */}
-      <div className="order-summary-container">
-        <span className="checkout-subtitle">order summary</span>
-        
-        <div className="order-summary-wrapper">
-          {/* <OrderSummaryCard /> */}
-          {cart.map((cartItem) => (
-            <OrderSummaryCard item={cartItem}/>
-          ))}
-        </div>
-       
-      </div>
-
-      <div className="checkout-customer-wrapper">
-        <span className="checkout-subtitle">customer info</span>
-
-        <CustomerInfo 
-          handleChange={handleChange}
-          values={values}
-          errors={errors}
-        />
-        
-        {/* OPT IN  */}
-        <div className="opt-msg">
-          <div 
-            onClick={() => handleOptIn()}
-            className={`opt-btn ${optIn ? "confirmed" : ""}`}
-          >
-            {optIn && (
-              <i className="fa-solid fa-check"/>
-            )}
+        {/* HEADER  */}
+        <div className="checkout-header">
+          <div className="back-btn" onClick={() => navigate(-1)}>
+            <i className="fa-solid fa-x"/>
           </div>
 
-          <span>Opt in to receive text message order updates (Optional)</span>
+          <div className="checkout-title">
+            <motion.img variants={staggerChildren} src="/Checkout/Checkout.png" alt="Logo" />
+          </div>
+          
         </div>
-      </div>
+      
+       <motion.img variants={staggerChildren} src="/Checkout/Checkout-Illustration.png" alt="Checkout" className="checkout-illustration"/>
 
-      {/* ORDER BUTTON  */}
-      <div
-        className="footer"
-        // style={{ visibility: overlayOpen ? "hidden" : "visible" }}
-      >
-        <button 
-          className="checkout-button button red"
-          onClick={() => handlePlaceOrder()}
+        {/* ORDER SUMMARY  */}
+        <motion.div variants={staggerChildren} className="order-summary-container">
+          <span className="checkout-subtitle">order summary</span>
+          
+          <div className="order-summary-wrapper">
+            {/* <OrderSummaryCard /> */}
+            {cart.map((cartItem) => (
+              <OrderSummaryCard item={cartItem}/>
+            ))}
+          </div>
+        
+        </motion.div>
+
+        <motion.div variants={staggerChildren} className="checkout-customer-wrapper">
+          <span className="checkout-subtitle">customer info</span>
+
+          <CustomerInfo 
+            handleChange={handleChange}
+            values={values}
+            errors={errors}
+          />
+          
+          {/* OPT IN  */}
+          <div className="opt-msg">
+            <div 
+              onClick={() => handleOptIn()}
+              className={`opt-btn ${optIn ? "confirmed" : ""}`}
+            >
+              {optIn && (
+                <i className="fa-solid fa-check"/>
+              )}
+            </div>
+
+            <span>Opt in to receive text message order updates (Optional)</span>
+          </div>
+        </motion.div>
+
+        {/* ORDER BUTTON  */}
+        <div
+          className="footer"
+          // style={{ visibility: overlayOpen ? "hidden" : "visible" }}
         >
-          place order
-        </button>
-      </div>
-      </div>
+          <motion.button 
+            className="checkout-button button red"
+            onClick={() => handlePlaceOrder()}
+            variants={slideUpCart}
+            initial="hidden"
+            animate="visible"
+          >
+            place order
+          </motion.button>
+        </div>
+      </motion.div>
     )}
   </AnimatePresence>
 );
