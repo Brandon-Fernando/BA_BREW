@@ -1,17 +1,20 @@
 import "./Button.css";
 import { useNavigate } from "react-router-dom";
+import { motion } from "motion/react";
 
 const BackButton = ({path}) => {
   const navigate = useNavigate();
 
   return(
-    <div onClick={() => navigate(path)} className="back-button-container">
-      <div className="back-button">
+    <motion.div 
+      onClick={() => navigate(path)} 
+      className="back-button"
+      whileTap={{ scale: 0.8 }}
+    >
+      {/* <div className="back-button"> */}
         <i className="fa-solid fa-angle-left"/>
-      </div>
-
-      <span>Back</span>
-    </div>
+      {/* </div> */}
+    </motion.div>
   )
 }
 

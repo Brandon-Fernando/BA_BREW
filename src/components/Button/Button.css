@@ -78,6 +78,7 @@
   box-shadow: 1.5px 1.5px 0px #650000;
   color: #EADDCA;
   font-size: 10px;
+  z-index: 1;
 }
 
 .back-button-container span{

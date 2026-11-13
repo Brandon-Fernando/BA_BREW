@@ -1,35 +1,3 @@
-// import Button from "../../components/Button/Button";
-// import "./Home.css";
-// import { motion } from "motion/react";
-// import { lineSlide, titleSlide, staggerContainer, staggerChildren } from "../../animations/motionVariants";
-// import { useNavigate } from "react-router-dom";
-
-// const Home = () => {
-//   const navigate = useNavigate();
-
-//   return(
-//     <motion.div 
-//       className="home-container"
-//     >
-//       {/* LOGO  */}
-//       <img src="/Home/Main_Logo.png" alt="Main Logo" className="home-logo"/>
-
-//       {/* BUTTON  */}
-
-//       <div className="illustration-button-container">
-//         <img src="/Home/Chairs.png" alt="Chairs" className="illustration"/>
-
-//         <button className="home-button button red">
-//           start order
-//         </button>
-//       </div>
-
-      
-//     </motion.div>
-//   )
-// }
-
-// export default Home;
 
 import { useEffect, useState } from "react";
 import "./Home.css";

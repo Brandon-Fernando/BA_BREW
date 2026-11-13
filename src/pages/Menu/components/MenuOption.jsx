@@ -3,6 +3,9 @@ import BackButton from "../../../components/Button/BackButton";
 import MenuList from "./MenuList";
 import CursiveTitles from "../../../components/CursiveTitles/CursiveTitles";
 import { SPECIALTY_COFFEES } from "../../../constants/constants";
+import { motion } from "motion/react";
+import { staggerChildren } from "../../../animations/motionVariants";
+
 
 const MENU_TYPE = {
   "specialty-coffees": SPECIALTY_COFFEES,
@@ -14,10 +17,17 @@ const MenuOption = () => {
 
   return(
     <div className="menu-option-container">
-      <BackButton path={"/menu"}/>
+      <div className="menu-option-header">
+        <BackButton path={"/menu"}/>
+
+        <div className="title-wrapper">
+          <motion.img variants={staggerChildren} initial="hidden" animate="visible" src="/Menu/Specialty.png" alt="Specialty" className="specialty-menu-title"/>
+        </div>
+      </div>
+      
 
       {/* SPECIALTY DRINKS  */}
-      <div className="specialty-drinks-wrapper">
+      {/* <div className="specialty-drinks-wrapper"> */}
         {/* <hr className="title-line"/> */}
 
         {/* <span className="specialty-title">Specialty</span>
@@ -27,8 +37,8 @@ const MenuOption = () => {
         </div> */}
 
         {/* <hr className="title-line"/> */}
-        <img src="/Menu/Specialty.png" alt="Specialty" className="menu-title"/>
-      </div>
+        
+      {/* </div> */}
 
       {menuType && (
         <MenuList coffeePath={menuOption} menu={menuType}/>

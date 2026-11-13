@@ -6,21 +6,21 @@ import { Link } from "react-router-dom";
 const COFFEE_OPTIONS = [
   {
     label: "Specialty Coffees", 
-    src: "/Coffee.png", 
+    src: "/sCoffee.png", 
     parentClass: "card-top", 
     childClass: "card-content-top", 
     path: "specialty-coffees"
   }, 
   {
     label: "Classic Coffees", 
-    src: "/Coffee.png", 
+    src: "/sCoffee.png", 
     parentClass: "card-middle", 
     childClass: "card-content-middle", 
     path: "classic-coffees"
   }, 
   {
     label: "Other Drinks", 
-    src: "/Coffee.png", 
+    src: "/sCoffee.png", 
     parentClass: "card-bottom", 
     childClass: "card-content-bottom", 
     path: "other-drinks"

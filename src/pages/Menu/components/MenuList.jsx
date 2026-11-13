@@ -34,7 +34,7 @@ const MenuList = ({coffeePath, menu}) => {
               <span className="drink-title">{drink.title}</span>
 
               <div className="view-button-wrapper">
-                <button className="view-button button red">view</button>
+                <button className="view-button">view</button>
               </div>
               
             </motion.div>

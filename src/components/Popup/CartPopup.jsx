@@ -11,7 +11,7 @@ const CartPopup = ({setCartPopupOpen, setCartSidebarOpen}) => {
   const navigate = useNavigate();
   const handleViewCart = () => {
     setCartPopupOpen(false)
-    setCartSidebarOpen(true)
+    navigate("/cart")
   }
 
   const handleAddMore = () => {
