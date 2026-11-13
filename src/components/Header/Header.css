@@ -45,4 +45,29 @@
 
 .cart-icon{
   color: #CA5050;
+  font-size: 17px;
+}
+
+.cart-header-container{
+  position: relative;
+  /* width: 1.5rem;
+  height: 1.5rem; */
+}
+
+.cart-num{
+  width: 15px;
+  height: 15px;
+  background-color: #650000;
+  border-radius: 50px;
+  border: 1.5px solid #EADDCA;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.3rem;
+  font-family: "Chunk";
+  color: #EADDCA;
+  font-size: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1px;
 }

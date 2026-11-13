@@ -68,11 +68,16 @@
 // export default Header;
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
+import { motion } from "motion/react";
+import { popupScale } from "../../animations/motionVariants";
 
 const Header = ({
   setMenuSidebarOpen
 }) => {
   const navigate = useNavigate();
+  const { cart } = useCart();
+
   
   return(
     <div className="header-container">
@@ -86,10 +91,25 @@ const Header = ({
         <div className="header-line"/>
       </div>
 
-      <i 
-        className="fa-solid fa-cart-shopping cart-icon"
-        onClick={() => navigate("/cart")}
-      />
+      <div className="cart-header-container">
+        <i 
+          className="fa-solid fa-cart-shopping cart-icon"
+          onClick={() => navigate("/cart")}
+        />
+
+        {cart.length > 0 && (
+          <motion.div 
+            className="cart-num"
+            variants={popupScale}
+            initial="hidden"
+            animate="visible"
+          >
+            <span>{cart.length}</span>
+          </motion.div>
+        )}
+       
+      </div>
+      
     </div>
   )
  
