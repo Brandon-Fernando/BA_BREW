@@ -93,10 +93,12 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  padding-left: 0.5rem;
+  padding-top: 0.2rem;
 }
 
 .cart-drink img{
-  width: 30px;
+  width: 50px;
 }
 
 .cart-drink-info-wrapper{

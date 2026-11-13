@@ -23,7 +23,7 @@ const Checkout = () => {
     lastName: "", 
     phoneNumber: ""
   })
-  const [orderPlaced, setOrderPlaced] = useState(true);
+  const [orderPlaced, setOrderPlaced] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
