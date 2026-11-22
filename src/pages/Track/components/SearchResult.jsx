@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 
 
 const SearchResult = ({order}) => {
+  console.log(order)
 
   return (
-    <div className="search-result-card">
+    <Link to={`/track/${order.orderNumber}`} className="search-result-card">
       {/* NAME / STATUS  */}
       <div className="search-name-status">
         <span>{order.customerInfo.firstName} {order.customerInfo.lastName}</span>
@@ -32,7 +34,7 @@ const SearchResult = ({order}) => {
           </button>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

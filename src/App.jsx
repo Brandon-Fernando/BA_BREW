@@ -30,7 +30,7 @@ function App() {
 
         <Route path='/track' element={<Track />}/>
 
-        <Route path='/track/order' element={<TrackOrder />}/>
+        <Route path='/track/:orderNum' element={<TrackOrder />}/>
 
         <Route path='/admin/signin' element={<AdminSignIn />}/>
 

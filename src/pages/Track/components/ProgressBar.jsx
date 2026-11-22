@@ -65,7 +65,7 @@ const ProgressBar = () => {
                 }}
                 transition={{
                   duration: CIRCLE_DURATION,
-                  delay: circleDelay,
+                  delay: 1 + circleDelay,
                 }}
               >
                 <i className={step.icon} />
@@ -78,7 +78,7 @@ const ProgressBar = () => {
                     animate={{ scaleX: lineProgress }}
                     transition={{
                       duration: LINE_DURATION,
-                      delay: index * LINE_DURATION,
+                      delay: 1 + index * LINE_DURATION,
                       ease: "easeInOut",
                     }}
                   />

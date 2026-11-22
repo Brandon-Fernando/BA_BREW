@@ -33,6 +33,12 @@ body {
     url("./fonts/Montserrat.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: local("Montserrat-Bold.ttf"), 
+    url("./fonts/Montserrat-Bold.ttf") format("truetype");
+}
+
 /* BUTTON  */
 .button{
   box-shadow: 3px 3px 0px #650000;
