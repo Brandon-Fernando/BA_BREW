@@ -12,6 +12,7 @@ import AdminRoute from './pages/Admin/AdminRoute'
 import AdminOrders from './pages/Admin/AdminOrders'
 import AdminOrderInfo from './pages/Admin/components/AdminOrderInfo'
 import Cart from './pages/Cart/Cart'
+import TrackOrder from './pages/Track/TrackOrder'
 
 function App() {
 
@@ -28,6 +29,8 @@ function App() {
         <Route path="/menu/:menuOption/:selectedDrink" element={<DrinkPage />}/>
 
         <Route path='/track' element={<Track />}/>
+
+        <Route path='/track/order' element={<TrackOrder />}/>
 
         <Route path='/admin/signin' element={<AdminSignIn />}/>
 

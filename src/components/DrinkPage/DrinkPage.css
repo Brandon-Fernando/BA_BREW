@@ -147,7 +147,7 @@
   width: 100%;
   box-sizing: border-box;
   height: calc(6rem + env(safe-area-inset-bottom));
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
   display: flex;
   align-items: center;
   justify-content: center;

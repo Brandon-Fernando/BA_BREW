@@ -1,5 +1,5 @@
 import { db } from "../../../../utils/firebase";
-import { collection, addDoc, serverTimestamp, getDocs, updateDoc, doc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, getDocs, updateDoc, doc, onSnapshot, where } from "firebase/firestore";
 
 const generateOrderNumber = () => {
   return Math.floor(100000 + Math.random() * 900000);
@@ -47,6 +47,32 @@ export const subscribeToOrders = (onOrders, onError) => {
       }));
 
       onOrders(orders);
+    },
+    onError
+  );
+};
+
+export const subscribeToMyOrders = (onOrders, onError) => {
+  const phone = auth.currentUser?.phoneNumber;
+
+  if (!phone) {
+    throw new Error("Verify your phone number first.");
+  }
+
+  const ordersQuery = query(
+    collection(db, "orders"),
+    where("customerInfo.phoneNumber", "==", phone)
+  );
+
+  return onSnapshot(
+    ordersQuery,
+    (snapshot) => {
+      onOrders(
+        snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
+      );
     },
     onError
   );
