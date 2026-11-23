@@ -6,12 +6,15 @@ import OrderCard from "./OrderCard";
 import Loading from "../../../components/Loading/Loading";
 import { motion } from "framer-motion";
 import { completeButton } from "../../../animations/motionVariants";
+import useIsDesktop from "../../../hooks/useIsDesktop";
+import AdminOrderInfoDesktop from "./AdminOrderInfoDesktop";
 
 
 const AdminOrderInfo = () => {
   const [order, setOrder] = useState();
   const { orderNum } = useParams();
   const [completeIds, setCompleteIds] = useState(() => new Set());
+  const isDesktop = useIsDesktop(); 
 
   console.log(order)
   useEffect(() => {
@@ -87,6 +90,19 @@ const AdminOrderInfo = () => {
     { label: "Status", value: order.status }, 
     { label: "Phone No.", value: order.customerInfo.phoneNumber}
   ];
+
+  if(isDesktop) {
+    return(
+      <AdminOrderInfoDesktop 
+        ORDER_SUB_INFO={ORDER_SUB_INFO}
+        order={order}
+        setItemComplete={setItemComplete}
+        updateOrderStatus={updateOrderStatus}
+        allComplete={allComplete}
+      />
+    )
+  }
+
 
   return(
     <div className="admin-order-info">
