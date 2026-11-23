@@ -5,17 +5,18 @@ const generateOrderNumber = () => {
   return Math.floor(100000 + Math.random() * 900000);
 };
 
-export const createOrder = async ({checkoutData, cart}) => {
+export const createOrder = async ({checkoutData, cart, textOpt}) => {
 
   const orderData = {
     orderNumber: generateOrderNumber(),
     customerInfo: checkoutData, 
     cart: cart, 
     status: "preparing", 
-    orderedAt: serverTimestamp()
+    orderedAt: serverTimestamp(), 
+    textOpt: textOpt
   }
 
-  const docRef = await addDoc(collection(db, "orders"), orderData)
+  const docRef = await addDoc(collection(db, "orders"), orderData);
 
   return docRef.id
 }

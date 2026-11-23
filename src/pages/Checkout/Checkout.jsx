@@ -13,6 +13,7 @@ import OrderPlaced from "./components/OrderPlaced";
 import { createOrder } from "./components/orderService";
 import { useNavigate } from "react-router-dom";
 
+
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Checkout = () => {
@@ -99,11 +100,16 @@ const Checkout = () => {
           quantity: item.quantity,
           customizations: item.customizations
         })),
+        textOpt: optIn
       })
 
       await delay(2909);
       
       setOrderPlaced(true)
+
+      if(optIn === true){
+        handleTestSms();
+      }
     } catch (error) {
       console.error(error);
     } finally {
@@ -115,7 +121,37 @@ const Checkout = () => {
   const handleOptIn = () => {
     setOptIn(!optIn)
   }
-  
+
+  const handleTestSms = async () => {
+  try {
+    const response = await fetch("/api/test-sms", { method: "POST" });
+
+    if (!response.ok) {
+      throw new Error(`SMS test failed (${response.status})`);
+    }
+
+    console.log("Twilio accepted the SMS request.");
+  } catch (error) {
+    console.error(error);
+  }
+};
+//   if (textOpt === true) {
+//   const digits = checkoutData.phoneNumber.replace(/\D/g, "");
+//   const to = digits.length === 10 ? `+1${digits}` : `+${digits}`;
+
+//   try {
+//     await sms.messages.create({
+//       from: process.env.TWILIO_FROM_NUMBER,
+//       to,
+//       body: `Hi ${checkoutData.firstName}, it's ${process.env.BUSINESS_NAME}. We received your order #${order.id}. Thanks for ordering! Reply STOP to opt out.`,
+//     });
+//   } catch (error) {
+//     console.error("Order confirmation text failed", {
+//       orderId: order.id,
+//       code: error.code,
+//     });
+//   }
+// }
 
 
 
@@ -200,6 +236,7 @@ const Checkout = () => {
           <motion.button 
             className="checkout-button button red"
             onClick={() => handlePlaceOrder()}
+            // onClick={handleTestSms}
             variants={slideUpCart}
             initial="hidden"
             animate="visible"
