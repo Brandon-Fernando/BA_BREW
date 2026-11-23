@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { CUSTOMIZE_OPTIONS } from "../../../constants/constants";
-import { expandAnimation, customizeOptions } from "../../../animations/motionVariants";
+import { expandAnimation, customizeOptions, customizeToggle } from "../../../animations/motionVariants";
 
 const Customize = ({options, selections, onChange}) => {
   const [expandedLabel, setExpandedLabel] = useState(null);
@@ -24,21 +24,37 @@ const Customize = ({options, selections, onChange}) => {
                 setExpandedLabel(option.label)
               }
             >
-              <div className="cust-title-select">
+              {/* <div className="cust-title-select">
                 <span className="cust-title">{option.label}</span>
 
                 <span className="cust-select">{selections[option.label]}</span>
-              </div>
-              
+              </div> */}
+              <span className="cust-title">{option.label}</span>
 
-              <motion.div 
-                className="cust-button"
-                initial={false}
-                animate={{ rotate: isExpanded ? 180 : 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-              >
-                <i className="fa-solid fa-angle-down"/>
-              </motion.div>
+              <div className="cust-select-btn">
+                <AnimatePresence mode="wait">
+                  <motion.span 
+                    className="cust-select"
+                    variants={customizeToggle}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    key={selections[option.label]}
+                  >
+                    {selections[option.label]}
+                  </motion.span>
+                </AnimatePresence>
+
+                <motion.div 
+                  className="cust-button"
+                  initial={false}
+                  animate={{ rotate: isExpanded ? 180 : 0 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                >
+                  <i className="fa-solid fa-angle-down"/>
+                </motion.div>
+
+              </div>
             </div>
 
             {/* CUSTOMIZED CARD OPENED  */}
@@ -54,14 +70,19 @@ const Customize = ({options, selections, onChange}) => {
                 >
                   <div className="customize-options">
                     {option.options.map((value) => (
-                      <motion.div 
-                        key={value}
+                      <motion.div
                         className="customize-option"
-                        variants={customizeOptions}
-                        animate={selections[option.label] === value ? "active" : "inactive"}
                         onClick={() => onChange(option.label, value)}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        {value}
+                        <span>{value}</span>
+
+                        <div className="cust-option-toggle">
+                          {selections[option.label] === value && (
+                            <div className="cust-option-selected"/>
+                          )}
+                         
+                        </div>
                       </motion.div>
                     ))}
                   </div>

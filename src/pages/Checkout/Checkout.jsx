@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Checkout = () => {
-  const { cart } = useCart();
+  const { cart, clearCart } = useCart();
   const [optIn, setOptIn] = useState(false);
   const [values, setValues] = useState({
     firstName: "", 
@@ -105,7 +105,9 @@ const Checkout = () => {
 
       await delay(2909);
       
-      setOrderPlaced(true)
+      setOrderPlaced(true);
+
+      clearCart();
 
       if(optIn === true){
         handleTestSms();

@@ -261,6 +261,24 @@ export const popupScale = {
   }
 };
 
+export const customizeToggle = {
+  hidden: {
+    x: -20, 
+    opacity: 0
+  }, 
+  visible: {
+    x: 0, 
+    opacity: 1,
+    transition: {
+      duration: 0.4
+    }
+  }, 
+  exit: {
+    opacity: 0,
+    x: 10
+  }
+}
+
 // SPRING BUTTON  
 export const buttonScale = {
   inactive: {
