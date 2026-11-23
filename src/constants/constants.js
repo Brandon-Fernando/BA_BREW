@@ -12,7 +12,11 @@ const COLD_FOAM = [
   "Cookie Butter", 
   "Gingerbread"
 ];
-const MILK = ["oat", "2%", "whole"];
+const DAIRY = [
+  "Whole Milk", 
+  "2% Milk", 
+  "Oat Milk"
+];
 
 export const CUSTOMIZE_OPTIONS = [
   {
@@ -24,6 +28,11 @@ export const CUSTOMIZE_OPTIONS = [
     label: "type", 
     options: TYPE
   }, 
+
+  {
+    label: "dairy", 
+    options: DAIRY
+  },
 
   { 
     label: "cold foam", 
@@ -63,15 +72,28 @@ export const SPECIALTY_COFFEES = [
     menu: "specialty coffees"
   }, 
   {
-    id:"gingerbread"
+    id:"gingerbread", 
+    title: "Gingerbread", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
   },
   {
-    id: "caramel"
+    id: "salted-caramel", 
+    title: "Salted Caramel", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
+
   }, 
   {
-    id: "blueberry"
+    id: "blueberry", 
+    title: "Blueberry", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
   },
   { 
-    id: "fog-breaker"
+    id: "fog-breaker", 
+    title: "Fog Breaker", 
+    options: CUSTOMIZE_OPTIONS, 
+    menu: "specialty coffees"
   }
 ]

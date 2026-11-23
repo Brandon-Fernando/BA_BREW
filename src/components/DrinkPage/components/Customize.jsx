@@ -5,12 +5,19 @@ import { expandAnimation, customizeOptions, customizeToggle } from "../../../ani
 
 const Customize = ({options, selections, onChange}) => {
   const [expandedLabel, setExpandedLabel] = useState(null);
+  
 
 
   return(
     <div className="customize-container">
       {options.map((option) => {
+
+         if (selections.type === "hot" && option.label === "cold foam") {
+            return null;
+          }
         const isExpanded = option.label === expandedLabel;
+
+        
 
         return(        
           <div
