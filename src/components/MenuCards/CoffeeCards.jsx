@@ -13,7 +13,7 @@ const COFFEE_OPTIONS = [
   }, 
   {
     label: "Classic Coffees", 
-    src: "/sCoffee.png", 
+    src: "/Classic.png", 
     parentClass: "card-middle", 
     childClass: "card-content-middle", 
     path: "classic-coffees"
@@ -46,7 +46,7 @@ export default function CoffeeCards() {
           >
             <span>{option.label}</span>
 
-            <img src={option.src} alt="Coffee" />
+            <img className={option.path} src={option.src} alt="Coffee" />
           </Link>
         </motion.article>
       ))}

@@ -12,8 +12,8 @@ const STEPS = [
     icon: "fa-solid fa-mug-hot",
   },
   {
-    label: "Complete",
-    status: "complete",
+    label: "Completed",
+    status: "completed",
     icon: "fa-solid fa-check",
   },
 ];

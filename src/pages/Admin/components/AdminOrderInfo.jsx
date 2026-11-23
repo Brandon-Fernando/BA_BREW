@@ -13,6 +13,7 @@ const AdminOrderInfo = () => {
   const { orderNum } = useParams();
   const [completeIds, setCompleteIds] = useState(() => new Set());
 
+  console.log(order)
   useEffect(() => {
     const loadOrder = async () => {
       try{
@@ -52,8 +53,26 @@ const AdminOrderInfo = () => {
         next.delete(id)
       }
 
+      if(order.textOpt === true){
+        handleTestSms()
+      }
+
       return next;
     })
+  }
+
+  const handleTestSms = async () => {
+    try{
+      const response = await fetch("/api/test-sms", { method: "POST" });
+      
+      if(!response.ok) {
+        throw new Error(`SMS test failed (${response.status})`);
+      }
+
+      console.log("Twilio accepted the SMS request")
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const completedCount = order.cart.filter((item) => 
