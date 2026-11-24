@@ -12,7 +12,7 @@ export async function createMessage() {
   const message = await client.messages.create({
     body: "sms_order_confirmation",
     from: "+17372583742",
-    to: "+19082830948",
+    to: "+19083426782",
   });
 
   console.log(message.sid, message.status);

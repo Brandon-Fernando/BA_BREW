@@ -24,6 +24,7 @@ const OrderPlaced = () => {
         <motion.button 
           className="order-placed-button button light"
           variants={staggerChildren}
+          onClick={() => navigate("/track")}
         >
           track order
         </motion.button>
