@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "./Layout.css";
 import Header from "../Header/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { backdropFade } from "../../animations/motionVariants";
 import MenuSidebar from "../MenuSidebar/MenuSidebar";
@@ -23,8 +23,11 @@ const Layout = () => {
   );
   
 
+  // useLayoutEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [location.pathname]);
   useLayoutEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location.pathname]);
 
   useEffect(() => {
@@ -58,6 +61,7 @@ const Layout = () => {
         location.pathname !== "/cart" &&
         location.pathname !== "/checkout" && (
           <Header
+            key={location.pathname}
             menuSidebarOpen={menuSidebarOpen}
             setMenuSidebarOpen={setMenuSidebarOpen}
           />

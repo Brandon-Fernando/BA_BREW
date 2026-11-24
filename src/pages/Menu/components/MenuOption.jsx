@@ -5,6 +5,7 @@ import CursiveTitles from "../../../components/CursiveTitles/CursiveTitles";
 import { SPECIALTY_COFFEES } from "../../../constants/constants";
 import { motion } from "motion/react";
 import { staggerChildren } from "../../../animations/motionVariants";
+import { useLayoutEffect } from "react";
 
 
 const MENU_TYPE = {
@@ -14,6 +15,10 @@ const MENU_TYPE = {
 const MenuOption = () => {
   const { menuOption } = useParams();
   const menuType = MENU_TYPE[menuOption];
+  
+  useLayoutEffect(() => {
+  window.scrollTo({ top: -12, left: 0, behavior: "instant" });
+}, []);
 
   return(
     <div className="menu-option-container">
