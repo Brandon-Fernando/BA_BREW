@@ -8,37 +8,34 @@ import { staggerContainer, staggerChildren } from "../../animations/motionVarian
 const Track = () => {
   const [orders, setOrders] = useState([]);
   const [searchedOrders, setSearchedOrders] = useState([]);
-  const [phoneNumber, setPhoneNumber] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+//  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = subscribeToOrders(
       (latestOrders) => {
         setOrders(latestOrders);
-        // setError(null);
         // setLoading(false);
       },
       (err) => {
         console.error("Failed to listen for orders:", err);
-        // setError("Unable to receive live order updates.");
-        // setLoading(false)
+        // setLoading(false);
       }
-    )
+    );
 
-    return () => unsubscribe()
+    return unsubscribe;
   }, []);
 
   const handleSearchOrders = (number) => {
-    const filteredOrders = orders.filter((order) => order.customerInfo.phoneNumber === number)
-
-    setSearchedOrders(filteredOrders);
-    console.log(searchedOrders)
-  }
+    setSearchedOrders(
+      orders.filter((order) => order.customerInfo.phoneNumber === number)
+    );
+  };
 
   const handleChange = (event) => {
     setPhoneNumber(event.target.value)
   }
-  
-
 
 
   return(
@@ -49,7 +46,7 @@ const Track = () => {
 
       {/* SEARCHBAR  */}
       <div className="search-wrapper">
-        <span>enter your phone number</span>
+        <span className="search-title">enter your phone number</span>
 
         <div className="searchbar-wrapper">
           {/* SEARCHBAR  */}
@@ -71,6 +68,12 @@ const Track = () => {
           className="search-btn button red"
           onClick={() => handleSearchOrders(phoneNumber)}
         >
+          {/* <span className="button-spinner" aria-hidden="true"/>
+          {loading ? (
+            <span className="button-spinner" aria-hidden="true" />
+          ) : (
+            <span className="search">Search</span>
+          )} */}
           Search
         </button>
       </div>

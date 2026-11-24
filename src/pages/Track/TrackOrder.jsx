@@ -13,7 +13,7 @@ const TrackOrder = () => {
   const [order, setOrder] = useState();
   const { orderNum } = useParams()
 
-  console.log(order)
+  
 
   useEffect(() => {
     const loadOrder = async () => {
@@ -71,11 +71,26 @@ const TrackOrder = () => {
         className="order-progress-illustration"
       >
         <div className="empty-cart-msg">
-          <motion.span variants={staggerChildren} className="msg-title">Preparing Drink</motion.span>
+          <motion.span variants={staggerChildren} className="msg-title">
+            {order.status === "preparing" ? (
+              <span>Preparing Drink</span>
+            ) : (
+              <span>Order Complete</span>
+            )}
+          </motion.span>
           <motion.span variants={staggerChildren} className="msg-subtitle">Your drinks will show up here once you add to cart.</motion.span>
         </div>
 
-        <motion.img variants={staggerChildren} src="/Track/Preparing.png" alt="Preparing" />
+        <motion.img
+          variants={staggerChildren}
+          src={
+            order.status === "preparing"
+              ? "/Track/Preparing.png"
+              : "/Track/Completed.png"
+          }
+          alt={order.status === "preparing" ? "Preparing your order" : "Order completed"}
+          className={`track-img ${order.status}`}
+        />
       </motion.div>
 
       {/* <ProgressBar /> */}

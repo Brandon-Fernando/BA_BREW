@@ -21,11 +21,13 @@ const STEPS = [
 const LINE_DURATION = 0.6;
 const CIRCLE_DURATION = 0.25;
 
-const ProgressBar = () => {
-  const order = ["preparing"]
+const ProgressBar = ({order}) => {
+  const status = order.status
+
+  console.log(order)
 
   const currentStep = STEPS.findIndex(
-    (step) => step.status === order[0]
+    (step) => step.status === status
   );
 
   return (

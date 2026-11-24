@@ -1,6 +1,7 @@
 
 
 const OrderInfoCard = ({order}) => {
+  const orderedAt = order.orderedAt?.toDate();
 
   return(
     <div className="order-info-card">
@@ -9,6 +10,10 @@ const OrderInfoCard = ({order}) => {
       <div className="track-order-drinks">
         {order.cart.map((drink) => (
           <div className="track-order-drink">
+            <div className="track-drink-qty">
+              {drink.quantity}
+            </div>
+
             <div className="drink-name-info">
               <span className="drink-main-info">{drink.title}</span>
               
@@ -19,7 +24,7 @@ const OrderInfoCard = ({order}) => {
               </p>
             </div>
 
-            <span className="order-info-value">x1</span>
+            {/* <span className="order-info-value">x1</span> */}
           </div>
         ))}
         
@@ -31,7 +36,20 @@ const OrderInfoCard = ({order}) => {
         <div className="track-customer-info">
           <span>Customer Name</span>
 
-          <span className="order-info-value">Brandon Fernando</span>
+          <span className="order-info-value">{order.customerInfo.firstName} {order.customerInfo.lastName}</span>
+        </div>
+
+        <div className="track-customer-info">
+          <span>Ordered At</span>
+
+          <span className="order-info-value">
+            {orderedAt?.toLocaleString("en-US", {
+              month: "short",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+            })}
+          </span>
         </div>
       </div>
 
