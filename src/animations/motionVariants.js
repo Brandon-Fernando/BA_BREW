@@ -443,3 +443,15 @@ export const completeButton = {
     }
   }
 }
+
+// ADMIN CARDS 
+export const adminCards = {
+  unselected: {
+    scale: 1, 
+    boxShadow: "0 0 0"
+  }, 
+  selected: {
+    scale: 1.1, 
+    boxShadow: "0px 6px 0px #B4A692"
+  }
+}
