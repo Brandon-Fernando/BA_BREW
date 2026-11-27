@@ -6,44 +6,16 @@ import { staggerContainer, staggerChildren, adminCards } from "../../../animatio
 import LoadingAnimation from "../../../components/Loading/LoadingAnimation";
 
 const AdminOrderList = ({
-  filterOption, 
-  selectedOrderId, 
-  setSelectedOrderId
+  filteredOrders, 
+  loading, 
+  activeOrderId, 
+  handleSelect
 }) => {
-  const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState("");
-  
-  
-  useEffect(() => {
-    const unsubscribe = subscribeToOrders(
-      (latestOrders) => {
-        setOrders(latestOrders);
-        setError(null);
-        setLoading(false);
-      },
-      (err) => {
-        console.error("Failed to listen for orders:", err);
-        setError("Unable to receive live order updates.");
-        setLoading(false)
-      }
-    )
-
-    return () => unsubscribe()
-  }, []);
-  
-
-  const filteredOrders = 
-    filterOption === "all"
-    ? orders 
-    : orders.filter((order) => order.status === filterOption)
  
 
   // Replace useState(filteredOrders[0]) with this, before the loading return.
 
-  const activeOrderId =
-    filteredOrders.find((order) => order.id === selectedOrderId)?.id ??
-    filteredOrders[0]?.id;
+  
       
   if (loading) {
     return(
@@ -61,8 +33,10 @@ const AdminOrderList = ({
           key={order.id}
           className="order-card"
           variants={adminCards}
+          layout="position"
+          transition={{ layout: { duration: 0.35, ease: "easeInOut" } }}
           animate={order.id === activeOrderId ? "selected" : "unselected"}
-          onClick={() => setSelectedOrderId(order.id)}
+          onClick={() => handleSelect(order.id, order)}
         >
           {/* STATUS / BUTTON  */}
           <div className="admin-order-status">

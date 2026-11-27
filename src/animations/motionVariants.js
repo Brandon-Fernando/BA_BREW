@@ -455,3 +455,20 @@ export const adminCards = {
     boxShadow: "0px 6px 0px #B4A692"
   }
 }
+
+// SLIDE IN 
+export const adminSidebar = {
+  inactive: {
+    x: 500
+  }, 
+  active: {
+    x: 0, 
+    transition: {
+      duration: 0.4, 
+      ease: "easeInOut"
+    }
+  }, 
+  exit: {
+    x: 300
+  }
+}
