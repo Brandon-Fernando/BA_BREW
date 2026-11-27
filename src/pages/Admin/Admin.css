@@ -309,7 +309,13 @@
   border-radius: 50px;
   border: 4px solid #B28376;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #EADDCA;
+  font-size: 10px;
 }
+
 
 .sidebar-card-cust{
   margin-top: 1.5rem;
@@ -363,4 +369,11 @@
   padding-top: 4px;
   width: 100%;
   height: 3rem;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Groove";
+  text-transform: uppercase;
+  color: #EADDCA;
 }

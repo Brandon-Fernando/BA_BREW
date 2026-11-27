@@ -472,3 +472,28 @@ export const adminSidebar = {
     x: 300
   }
 }
+
+
+export const backgroundFade = {
+  hidden: {
+    // opacity: 0
+  }, 
+  visible: {
+    opacity: 1, 
+    backgroundColor: "#B28376", 
+    transition: {
+      duration: 0.4, 
+      ease: "easeInOut"
+    }
+  }
+}
+
+
+export const buttonComplete = {
+  incomplete: {
+    backgroundColor: "#D9A699"
+  }, 
+  complete: {
+    backgroundColor: "#CA5050"
+  }
+}

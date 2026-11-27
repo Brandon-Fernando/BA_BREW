@@ -1,4 +1,6 @@
+import { motion } from "motion/react";
 import { useState } from "react";
+import { backgroundFade, buttonComplete, popupScale } from "../../../animations/motionVariants";
 
 const AdminSidebar = ({selectedOrderId, order}) => {
   const ORDER_SUB_INFO = [
@@ -32,8 +34,6 @@ const AdminSidebar = ({selectedOrderId, order}) => {
     }));
   }
 
-  // console.log(completedByItem)
-  console.log(completedByItem.id)
 
 
   return(
@@ -59,9 +59,10 @@ const AdminSidebar = ({selectedOrderId, order}) => {
           const isComplete = (completedByItem[item.cartItemId] ?? 0) > 0;
 
           return(
-            <div 
+            <motion.div 
               className="sidebar-order-card"
               onClick={() => markOneComplete(item)}
+              whileTap={{scale: 0.9}}
             >
               <div className="sidebar-card-header">
                 <div className="sidebar-card-qty">
@@ -70,9 +71,21 @@ const AdminSidebar = ({selectedOrderId, order}) => {
 
                 <span>{item.title}</span>
 
-                <div className="sidebar-card-toggle">
-                  {}
-                </div>
+                <motion.div 
+                  className="sidebar-card-toggle"
+                  variants={backgroundFade}
+                  animate={!isComplete ? "hidden" : "visible"}
+                >
+                  {isComplete && (
+                    <motion.i 
+                      className="fa-solid fa-check"
+                      variants={popupScale}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                    />
+                  )}
+                </motion.div>
               </div>
 
               {/* CUSTOMIZATIONS  */}
@@ -86,7 +99,7 @@ const AdminSidebar = ({selectedOrderId, order}) => {
                   )
                 )}
               </div>
-            </div>
+            </motion.div>
           )
         })}
       </div>
@@ -94,9 +107,17 @@ const AdminSidebar = ({selectedOrderId, order}) => {
 
       {/* FOOTER  */}
       <div className="admin-sidebar-footer">
-        <button className="admin-sidebar-btn button red">
-          complete order
-        </button>
+        <motion.button 
+          className="admin-sidebar-btn"
+          variants={buttonComplete}
+          animate={completedDrinks === totalDrinks ? "complete" : "incomplete"}
+        >
+          {completedDrinks === totalDrinks ? (
+            <span>Complete Order</span>
+          ) : (
+            <span>{completedDrinks} / {totalDrinks} Completed</span>
+          )}
+        </motion.button>
       </div>
     </>
   )
